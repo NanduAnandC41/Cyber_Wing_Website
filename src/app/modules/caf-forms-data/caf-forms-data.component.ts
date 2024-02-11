@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-caf-forms-data',
+  templateUrl: './caf-forms-data.component.html',
+  styleUrls: ['./caf-forms-data.component.css']
 })
-export class ChangePasswordComponent implements OnInit{
+export class CafFormsDataComponent implements OnInit{
 
   constructor(private navbarService: NavBarService) { }
 

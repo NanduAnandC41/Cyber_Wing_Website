@@ -1,12 +1,13 @@
+	
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-ration-card-details',
+  templateUrl: './ration-card-details.component.html',
+  styleUrls: ['./ration-card-details.component.css']
 })
-export class ChangePasswordComponent implements OnInit{
+export class RationCardDetailsComponent implements OnInit{
 
   constructor(private navbarService: NavBarService) { }
 

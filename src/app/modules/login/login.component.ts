@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { NavBarService } from '../../services/nav-bar.service';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +22,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router,
+    private navbarService: NavBarService) { }
 
   ngOnInit(): void {
+
+    this.navbarService.setShowNavbar(false); 
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -52,6 +56,11 @@ export class LoginComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  createUser(): void{
+    console.log("Function has been called");
+    this.router.navigateByUrl("/create-user");
   }
 
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavBarService } from './services/nav-bar.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'website-official-project';
-
+  showNavbar: boolean = false;
 
   private roles: string[] = [];
   isLoggedIn = false;
@@ -15,7 +16,9 @@ export class AppComponent {
   showModeratorBoard = false;
   username?: string;
 
-  constructor() { }
+  constructor(private navbarService: NavBarService) {
+    this.navbarService.showNavbar.subscribe(show => this.showNavbar = show);
+  }
 
   ngOnInit(): void {
 

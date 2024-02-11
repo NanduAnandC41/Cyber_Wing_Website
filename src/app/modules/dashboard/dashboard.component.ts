@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsData } from '../../models/state.constants';
+import { NavBarService } from '../../services/nav-bar.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,11 +11,11 @@ export class DashboardComponent implements OnInit {
 
   cardsData: Array<CardsData> = [];
 
-  constructor(){
-
-  }
+  constructor(private navbarService: NavBarService) { }
 
   ngOnInit(): void {
+    
+    this.navbarService.setShowNavbar(false);
 
     this.cardsData = [
       {
@@ -23,51 +24,51 @@ export class DashboardComponent implements OnInit {
       },
       {
         cardName: "Cyber Bully",
-        linkName: "",
+        linkName: "cyber-bully",
       },
       {
         cardName: "Suspect Data",
-        linkName: "",
+        linkName: "suspect-data",
       },
       {
         cardName: "Cell ID Data",
-        linkName: "",
+        linkName: "cell-data",
       },
       {
         cardName: "SDR",
-        linkName: "",
+        linkName: "sdr-data",
       },
       {
         cardName: "CAF Forms",
-        linkName: "",
+        linkName: "caf-forms",
       },
       {
         cardName: "Ration Card Details",
-        linkName: "",
+        linkName: "ration-card",
       },
       {
         cardName: "Mobile Hunt",
-        linkName: "",
+        linkName: "mobile-hunt",
       },
       {
         cardName: "Daily CDR Requests",
-        linkName: "",
+        linkName: "cdr-requests",
       },
       {
         cardName: "social Media",
-        linkName: "",
+        linkName: "social-media",
       },
       {
         cardName: "Cases Investigation",
-        linkName: "",
+        linkName: "cases-check",
       },
       {
         cardName: "Search Multiple Criteria",
-        linkName: "",
+        linkName: "search-criteria",
       },
       {
         cardName: "NCRP",
-        linkName: "",
+        linkName: "ncrp-data",
       }
     ];
 

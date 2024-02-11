@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 
+
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-cases-investigation-data',
+  templateUrl: './cases-investigation-data.component.html',
+  styleUrls: ['./cases-investigation-data.component.css']
 })
-export class ChangePasswordComponent implements OnInit{
+export class CasesInvestigationDataComponent implements OnInit{
 
   constructor(private navbarService: NavBarService) { }
 
   ngOnInit(): void {
     this.navbarService.setShowNavbar(false); 
   }
-
 }
