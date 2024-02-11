@@ -1,0 +1,33 @@
+<!-- <div class="card" style="width: 18rem; margin-top: 2rem;">
+  <div class="card-body">
+    <h5 class="card-title">CDR's Data</h5>
+
+    <a href="/cdr-data" class="card-link"></a>
+
+  </div>
+</div>
+
+
+<div class="card" style="width: 18rem; margin-top: 2rem;">
+  <div class="card-body">
+    <h5 class="card-title">Cyber Bully</h5>
+
+    <a href="/cdr-data" class="card-link"></a>
+
+  </div>
+</div> -->
+
+<div class="row">
+  <div class="card" style="width: 15rem; margin-top: 2rem; margin-right: 2rem;"
+  *ngFor="let info of cardsData">
+    <div class="card-body">
+        <div class="media">
+
+            <h5 class="card-title"> {{info.cardName}}</h5>
+            <!-- <a>{{info.serviceName}}</a><br><br> -->
+
+        </div>
+    </div>
+  </div>
+</div>
+
