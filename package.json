@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@types/node": "^20.11.19",
     "angular-datatables": "^15.0.0",
     "bootstrap": "^5.3.2",
     "datatables.net": "^2.0.0",

@@ -23,6 +23,10 @@ import { SearchMultipleCriteriaDataComponent } from './modules/search-multiple-c
 import { NcrpDataComponent } from './modules/ncrp-data/ncrp-data.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
+import { DataTablesModule } from 'angular-datatables';
+import { HttpClientModule } from '@angular/common/http';
+import * as $ from "jquery";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +53,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    DataTablesModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

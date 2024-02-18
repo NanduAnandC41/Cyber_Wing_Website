@@ -1,0 +1,80 @@
+<div >
+
+
+  <div style="margin-top: 20px;">
+
+      <form [formGroup]="cdrDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
+
+          <div class='aligned_form form-group'>
+
+              <label for="uploadFile">Upload </label>
+              <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile">
+              <!-- <input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
+
+              <div class="dropdown-search-btn">
+                <select formControlName="selectValue" class="form-control" style="margin-right: 5px;">
+                  <option disabled>Dropdown List</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+                <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                    <div *ngIf="f.website.errors.required">Name is required.</div>
+                </div> -->
+                <input class="form-control" formControlName="searchField"
+                  placeholder="Enter Search Field" style="margin-right: 5px;">
+                <button style="margin:3px" role="button" class="button-name" style="margin-right: 5px;"
+                (click)="seachValueToDataTable();">
+                Search</button>
+
+              </div>
+
+            </div>
+
+      </form>
+
+      <div class="card-container">
+
+        <table id="cdr-dataTable"
+        class="table table-striped table-bordered table-sm row-border hover">
+          <thead>
+              <tr>
+                  <th>Crime No</th>
+                  <th>A Party</th>
+                  <th>B Party</th>
+                  <th>Date & Time</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let val of crimeData">
+                  <td>{{ val.crimeNo }}</td>
+                  <td>{{ val.aParty }}</td>
+                  <td>{{ val.bParty }}</td>
+                  <td>{{ val.dateTime }}</td>
+              </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="box" style="display: flex;
+      width: 50%;
+      margin-left: auto;
+      margin-right: 0;">
+
+        <button style="margin:3px" role="button" class="button-name">Export Excel</button>
+        <button style="margin:3px" role="button" class="button-name">Export PDF</button>
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+</div>
