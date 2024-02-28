@@ -2,7 +2,7 @@
 
 
 
-    <div class="box" style="margin: 5px;">
+    <!-- <div class="box" style="margin: 5px;">
         <div style="float: left; width: 50%;">
             <button style="margin:3px" role="button" class="button-name">New Data</button>
         </div>
@@ -11,10 +11,10 @@
             <button style="margin:3px" role="button" class="button-name">Bulk Upload</button>
             <button style="margin:3px" role="button" class="button-name">Search</button>
         </div>
-    </div>
+    </div> -->
 
-    <div>
 
+    <div style="margin-top: 15px;">
         <form [formGroup]="cyberBullyForm"  accept-charset="utf-8" enctype="multipart/form-data">
 
             <div class='aligned_form form-group'>
@@ -106,6 +106,13 @@
 
 
 
+              </div>
+
+              <div>
+                <button style="margin-top: 20px;
+                float: left;" role="button" class="button-name"
+                (click)="submitCdrData();">
+                Submit</button>
               </div>
 
         </form>

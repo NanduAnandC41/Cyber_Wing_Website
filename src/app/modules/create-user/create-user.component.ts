@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
 
 @Component({
   selector: 'app-create-user',
@@ -7,11 +8,28 @@ import { NavBarService } from '../../services/nav-bar.service';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit{
-
-  constructor(private navbarService: NavBarService) { }
+  public creatUserForm!: FormGroup;
+  constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.navbarService.setShowNavbar(false); 
+    this.navbarService.setShowNavbar(true);
+
+    this.creatUserForm = this.formBuilder.group({
+
+      userName: new FormControl(),
+      userPhNo: new FormControl(),
+      userEmailId: new FormControl(),
+      stationName: new FormControl(),
+      userPassword: new FormControl(),
+    }
+  );
+
+
+  }
+
+
+  createUser(): void{
+    console.log("User Form Data : ");
   }
 
 }

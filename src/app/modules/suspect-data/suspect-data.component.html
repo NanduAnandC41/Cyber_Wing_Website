@@ -1,1 +1,153 @@
-<p>suspect-data works!</p>
+<div >
+
+
+
+  <!-- <div class="box" style="margin: 5px;">
+      <div style="float: left; width: 50%;">
+          <button style="margin:3px" role="button" class="button-name">New Data</button>
+      </div>
+      <div style="float: right; width: 50%;">
+          <button style="margin:3px" role="button" class="button-name">Modify</button>
+          <button style="margin:3px" role="button" class="button-name">Bulk Upload</button>
+          <button style="margin:3px" role="button" class="button-name">Search</button>
+      </div>
+  </div> -->
+
+
+  <div style="margin-top: 15px;">
+      <form [formGroup]="suspectDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
+
+          <div class='aligned_form form-group'>
+
+              <label for="modeOfOperand">Mode Of Operand </label>
+              <input class="form-control" formControlName="modeOfOperand"  placeholder="Enter Operand Mode">
+
+              <label for="firPtNo">FIR No / PT No </label>
+              <input class="form-control" formControlName="firPtNo"  placeholder="Enter FIR / PT No">
+
+              <label for="sectionOfLaw">Section Of Law </label>
+              <input class="form-control" formControlName="sectionOfLaw"  placeholder="Enter Section Of LAW">
+
+
+
+              <label for="fullName">Suspect Name</label>
+              <input class="form-control" formControlName="fullName"  placeholder="Enter Name">
+
+              <label for="fatherName">Father Name</label>
+              <input class="form-control" formControlName="fatherName"  placeholder="Enter Name">
+
+              <label for="fullAddress">Full Address</label>
+              <input class="form-control" formControlName="fullAddress"  placeholder="Enter Address">
+
+              <label for="suspectPhNo">Suspect Ph No.s</label>
+              <input class="form-control" formControlName="suspectPhNo"  placeholder="Enter Phone Nos">
+
+              <label for="suspectUsedImes">Suspect Used IME's</label>
+              <input class="form-control" formControlName="suspectUsedImes"  placeholder="Enter IME's No">
+
+              <label for="suspectCaf">Suspect CAF</label>
+              <input class="form-control" formControlName="suspectCaf"   placeholder="Enter CAF">
+
+              <label for="suspectBpartyNos">Suspect B Party No</label>
+              <input class="form-control" formControlName="suspectBpartyNos"  placeholder="Enter B Party Nos">
+
+              <label for="bankAcctNo">Bank Account Nos</label>
+              <input class="form-control" formControlName="bankAcctNo"  placeholder="Enter Bank Accounts">
+
+              <label for="bankIfsc">IFSC</label>
+              <input class="form-control" formControlName="bankIfsc"  placeholder="Enter IFSC">
+
+              <label for="upIds">UP IDs</label>
+              <input class="form-control" formControlName="upIds"  placeholder="Enter UP IDs">
+
+              <label for="aadharNo">Aadhar Card No</label>
+              <input class="form-control" formControlName="aadharNo"  placeholder="Enter Aadhar No">
+
+              <label for="rationCard">Ration Card No</label>
+              <input class="form-control" formControlName="rationCard"  placeholder="Enter Ration Card No">
+
+
+
+              <label for="drivingLicenseNo">Driving License No.</label>
+              <input class="form-control" formControlName="drivingLicenseNo"  placeholder="Enter Driving License No">
+
+              <label for="vehicleDetails">Vehicle Details</label>
+              <input class="form-control" formControlName="vehicleDetails"  placeholder="Enter Vehicle Details">
+
+              <label for="panCardNo">PAN Card No</label>
+              <input class="form-control" formControlName="panCardNo"  placeholder="Enter PAN Card no">
+
+              <label for="emaiIdPersonal">Gmail IDs</label>
+              <input class="form-control" formControlName="emaiIdPersonal"  placeholder="Enter Gmail IDs">
+
+              <label for="facebookDetails">Facebook ID/Pages/Groups</label>
+              <input class="form-control" formControlName="facebookDetails"  placeholder="Enter Facebook Details">
+
+              <label for="instagramId">Instagram ID</label>
+              <input class="form-control" formControlName="instagramId"  placeholder="Enter Instagram Details">
+
+              <label for="whatsAppDetails">WhatsApp No And Groups</label>
+              <input class="form-control" formControlName="whatsAppDetails"  placeholder="Enter WhatsApps Details">
+
+              <label for="otherSocialMediaActs">Other Social Media Accounts</label>
+              <input class="form-control" formControlName="otherSocialMediaActs"  placeholder="Enter Other Social Media Details">
+
+
+
+              <label for="photosOfSuspect">Photos Of Suspect </label>
+              <input class="form-control" formControlName="photosOfSuspect" type="file" name="suspectPhotos">
+
+              <label for="caseScreenShots">Case Related Screenshots </label>
+              <input class="form-control" formControlName="caseScreenShots" type="file" name="relatedScreenShots">
+
+              <label for="websiteAddressSuspectCreated">Website Address Created By Suspect</label>
+              <input class="form-control" formControlName="websiteAddressSuspectCreated"  placeholder="Enter Suspect Website Address">
+
+              <label for="dateOfArrest">Date Of Arrest</label>
+              <input type="date" class="form-control" formControlName="dateOfArrest"  value="currentDate">
+
+              <label for="previousCrimeHistory">Previous Crime Histoy</label>
+              <input class="form-control" formControlName="previousCrimeHistory"  placeholder="Enter Previous Crime Data">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="policeStation">Station Name </label>
+                <select formControlName="policeStation" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Station 1</option>
+                  <option>Station 2</option>
+                  <option>Station 3</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+
+              <label for="remarks">Remarks</label>
+              <textarea class="form-control" name="remarks" formControlName="remarks" rows="4" cols="50">
+
+              </textarea>
+
+
+
+            </div>
+
+            <div>
+              <button style="margin-top: 20px;
+              float: left;" role="button" class="button-name"
+              (click)="submitSuspectData();">
+              Submit</button>
+            </div>
+
+      </form>
+
+
+
+  </div>
+
+
+</div>

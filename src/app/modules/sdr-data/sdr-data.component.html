@@ -1,1 +1,209 @@
-<p>sdr-data works!</p>
+<div >
+
+
+
+  <!-- <div class="box" style="margin: 5px;">
+      <div style="float: left; width: 50%;">
+          <button style="margin:3px" role="button" class="button-name">New Data</button>
+      </div>
+      <div style="float: right; width: 50%;">
+          <button style="margin:3px" role="button" class="button-name">Modify</button>
+          <button style="margin:3px" role="button" class="button-name">Bulk Upload</button>
+          <button style="margin:3px" role="button" class="button-name">Search</button>
+      </div>
+  </div> -->
+
+
+  <div style="margin-top: 15px;">
+      <form [formGroup]="sdrDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
+
+          <div class='aligned_form form-group'>
+
+              <label for="serialNo">ID / SNo.</label>
+              <input class="form-control" formControlName="serialNo"  placeholder="Enter Serial Noe">
+
+              <label for="telephoneNo">Telephone No </label>
+              <input class="form-control" formControlName="telephoneNo"  placeholder="Enter Telephone No">
+
+              <label for="alternatePhNo">Alternate Ph No </label>
+              <input class="form-control" formControlName="alternatePhNo"  placeholder="Enter Alernate Ph no">
+
+              <label for="subscriberName">Name Of Subscriber</label>
+              <input class="form-control" formControlName="subscriberName"  placeholder="Enter Subscriber Name">
+
+              <label for="dateOfBirth">Date Of Birth</label>
+              <input type="date" class="form-control" formControlName="dateOfBirth"  value="currentDate">
+
+              <label for="sonDaughterWifeOf">Son / Daughter / Wife Of</label>
+              <input class="form-control" formControlName="sonDaughterWifeOf"  placeholder="Enter Name">
+
+              <label for="localAddress">Local Address</label>
+              <input class="form-control" formControlName="localAddress"  placeholder="Enter Address">
+
+              <label for="permanentAddress">Permanent Address</label>
+              <input class="form-control" formControlName="permanentAddress"  placeholder="Enter Address">
+
+              <label for="emaiIdPersonal">Gmail IDs</label>
+              <input class="form-control" formControlName="emaiIdPersonal"  placeholder="Enter Gmail IDs">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="gender">Gender</label>
+                <select formControlName="gender" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>Other</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+              <label for="nationality">Nationality</label>
+              <input class="form-control" formControlName="nationality"  placeholder="Enter Country Name">
+
+              <label for="profession">Profession</label>
+              <input class="form-control" formControlName="profession"  placeholder="Enter Profession">
+
+              <label for="panCardNo">PAN Card No</label>
+              <input class="form-control" formControlName="panCardNo"  placeholder="Enter PAN Card no">
+
+              <label for="photosOfIdProofs">Photos Of ID Proofs </label>
+              <input class="form-control" formControlName="photosOfIdProofs" type="file" name="photosOfIdProofs">
+
+              <label for="cafSerailNo">CAF Serial No</label>
+              <input class="form-control" formControlName="cafSerailNo"  placeholder="Enter CAF Serial No">
+
+              <label for="idProofsDetails">ID Proof Details </label>
+              <input class="form-control" formControlName="idProofsDetails" type="file" name="idProofsDetails">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="subscriberStatus">Status Of Scubscriber</label>
+                <select formControlName="subscriberStatus" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Active</option>
+                  <option>In-Active</option>
+
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+              <label for="connectionType">Connection Type </label>
+              <input class="form-control" formControlName="connectionType"  placeholder="Enter Connection Type">
+
+              <label for="localReference">Local Reference </label>
+              <input class="form-control" formControlName="localReference"  placeholder="Enter Local Reference">
+
+              <label for="customerPhNo">Customer Ph No </label>
+              <input class="form-control" formControlName="customerPhNo"  placeholder="Enter Customer Ph No">
+
+              <label for="latitude">Latitude</label>
+              <input class="form-control" formControlName="latitude"  placeholder="Enter Latitude">
+
+              <label for="longitude">Longitude </label>
+              <input class="form-control" formControlName="longitude"  placeholder="Enter Longitude">
+
+
+              <label for="imsiNo">IMSI No </label>
+              <input class="form-control" formControlName="imsiNo"  placeholder="Enter IMSI No">
+
+              <label for="serviceProvider">Service Provider</label>
+              <input class="form-control" formControlName="serviceProvider"  placeholder="Enter Service Provider">
+
+              <label for="connectionStatus">Current Status Of Connection </label>
+              <input class="form-control" formControlName="connectionStatus"  placeholder="Enter Coonection Status">
+
+              <label for="previousServiceProvider">Previous Service Provider </label>
+              <input class="form-control" formControlName="previousServiceProvider"  placeholder="Enter Previous Service">
+
+              <label for="saleCode">Point Of Sale Code </label>
+              <input class="form-control" formControlName="saleCode"  placeholder="Enter Sale Code">
+
+              <label for="nameOfSale">Name Of Sale </label>
+              <input class="form-control" formControlName="nameOfSale"  placeholder="Enter Sale Name">
+
+              <label for="salesAgentName">Sales Agent Name</label>
+              <input class="form-control" formControlName="salesAgentName"  placeholder="Enter Agent Name">
+
+              <label for="salesAgentAddress">Sales Agent Address </label>
+              <input class="form-control" formControlName="salesAgentAddress"  placeholder="Enter Agent Address">
+
+              <label for="agentSignature">Sales Agent Signature </label>
+              <input class="form-control" formControlName="photosOfSuspect" type="file" name="suspectPhotos">
+
+              <label for="nameOfActivation">Name Of Activation</label>
+              <input class="form-control" formControlName="nameOfActivation"  placeholder="Enter Activation Name">
+
+              <label for="dateTimeSimActivation">Date & Time Of SIM Activation</label>
+              <input type="datetime-local" class="form-control" formControlName="dateTimeSimActivation"  value="dateTimeSimActivation">
+
+              <label for="transactionId">Transaction ID</label>
+              <input class="form-control" formControlName="suspectBpartyNos"  placeholder="Enter Activation Name">
+
+              <label for="customerPhoto">Customer Photo </label>
+              <input class="form-control" formControlName="customerPhoto" type="file" name="customerPhoto">
+
+              <label for="agentAadharNo">Agent Aadhar No</label>
+              <input class="form-control" formControlName="agentAadharNo"  placeholder="Enter Aadhar No">
+
+              <label for="kycAutherization">KYC Autherization Response</label>
+              <input class="form-control" formControlName="kycAutherization"  placeholder="Enter Autherization Response">
+
+              <label for="kycDeclaration">KYC Declaration Response</label>
+              <input class="form-control" formControlName="kycDeclaration"  placeholder="Enter Declaration Response">
+
+              <label for="posAuthentication">POS Authentication Response</label>
+              <input class="form-control" formControlName="posAuthentication"  placeholder="Enter Authentication Response">
+
+              <label for="circle">Circle</label>
+              <input class="form-control" formControlName="circle"  placeholder="Enter Circle Name">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="policeStation">Station Name </label>
+                <select formControlName="policeStation" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Station 1</option>
+                  <option>Station 2</option>
+                  <option>Station 3</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+              <label for="remarks">Additional Details</label>
+              <textarea class="form-control" name="remarks" formControlName="remarks" rows="4" cols="50">
+
+              </textarea>
+
+            </div>
+
+            <div>
+              <button style="margin-top: 20px;
+              float: left;" role="button" class="button-name"
+              (click)="submitSdrInformation();">
+              Submit</button>
+            </div>
+
+      </form>
+
+
+
+  </div>
+
+
+</div>

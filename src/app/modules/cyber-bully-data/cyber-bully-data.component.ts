@@ -54,4 +54,9 @@ export class CyberBullyDataComponent implements OnInit{
     );
   }
 
+
+  submitCdrData():void {
+    console.log("Submit CDR Data");
+  }
+
 }

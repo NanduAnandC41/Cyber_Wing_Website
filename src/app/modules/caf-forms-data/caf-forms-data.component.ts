@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
 
 @Component({
   selector: 'app-caf-forms-data',
@@ -11,7 +12,7 @@ export class CafFormsDataComponent implements OnInit{
   constructor(private navbarService: NavBarService) { }
 
   ngOnInit(): void {
-    this.navbarService.setShowNavbar(false); 
+    this.navbarService.setShowNavbar(true);
   }
 
 }
