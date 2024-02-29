@@ -2,19 +2,32 @@
 
 
 
-    <!-- <div class="box" style="margin: 5px;">
+    <div class="box" style="margin: 5px;">
         <div style="float: left; width: 50%;">
-            <button style="margin:3px" role="button" class="button-name">New Data</button>
+            <button style="margin:3px" role="button" class="button-name"
+            (click)="addCyberBullyDetails()">New Data</button>
         </div>
         <div style="float: right; width: 50%;">
-            <button style="margin:3px" role="button" class="button-name">Modify</button>
-            <button style="margin:3px" role="button" class="button-name">Bulk Upload</button>
-            <button style="margin:3px" role="button" class="button-name">Search</button>
+            <button style="margin:3px" role="button" class="button-name"
+            (click)="updateCyberBullySearchValue()">Modify</button>
+            <button style="margin:3px" role="button" class="button-name"
+            (click)="bulkUploadOfCyberBully()">Bulk Upload</button>
+            <!-- <button style="margin:3px" role="button" class="button-name">Search</button> -->
         </div>
-    </div> -->
+    </div>
+
+    <div class="box" style="margin: 5px;">
+      <div style="float: left; width: 50%;">
+        <input class="form-control" [(ngModel)]="searchValue"  placeholder="Enter Search Value">
+      </div>
+      <div style="float: right; width: 50%;">
+          <button style="margin-left: 10px;" role="button" class="button-name"
+          (click)="cyberBullySearchValue()">Search</button>
+      </div>
+    </div>
 
 
-    <div style="margin-top: 15px;">
+    <div style="margin-top: 5px;" *ngIf="newDataUpdate">
         <form [formGroup]="cyberBullyForm"  accept-charset="utf-8" enctype="multipart/form-data">
 
             <div class='aligned_form form-group'>

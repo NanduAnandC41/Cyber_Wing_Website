@@ -10,6 +10,10 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  
 })
 export class CyberBullyDataComponent implements OnInit{
   public cyberBullyForm!: FormGroup;
+
+  newDataUpdate: boolean = false;
+  searchValue: string = "";
+
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -52,6 +56,24 @@ export class CyberBullyDataComponent implements OnInit{
 
       }
     );
+  }
+
+
+  addCyberBullyDetails(): void{
+    this.newDataUpdate = !this.newDataUpdate;
+  }
+
+  cyberBullySearchValue(): void{
+    this.newDataUpdate = !this.newDataUpdate;
+    console.log("Search Value : " + this.searchValue);
+  }
+
+  updateCyberBullySearchValue(): void {
+    this.newDataUpdate = !this.newDataUpdate;
+  }
+
+  bulkUploadOfCyberBully(): void{
+
   }
 
 
