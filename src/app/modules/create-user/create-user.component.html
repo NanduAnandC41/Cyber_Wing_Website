@@ -1,5 +1,8 @@
 <div>
 
+  <div style="height: 50px;">
+
+  </div>
 
   <div>
     <form [formGroup]="creatUserForm"  accept-charset="utf-8" enctype="multipart/form-data"
@@ -11,15 +14,14 @@
             <label for="userName">User Name </label>
             <input class="form-control" formControlName="userName"  placeholder="Enter Name">
 
-            <label for="userPhNo">User Ph No </label>
-            <input class="form-control" formControlName="userPhNo"  placeholder="Enter Ph No">
+            <label for="generalNo">General No </label>
+            <input class="form-control" formControlName="generalNo"  placeholder="Enter General No">
 
             <label for="userEmailId">Email ID </label>
             <input class="form-control" formControlName="userEmailId"  placeholder="Enter Email ID">
 
-            <!-- <label for="password">Password</label>
-            <input type="password" class="form-control" formControlName="userPassword"
-            name="password" required minlength="6"/> -->
+            <label for="userRank">Rank</label>
+            <input class="form-control" formControlName="userEmailId"  placeholder="Enter Rank">
 
             <div style="display: flex;
             flex-flow: row;
@@ -38,12 +40,40 @@
 
             </div>
 
-            <label for="stationNo">Police Station No </label>
-            <input class="form-control" formControlName="stationNo"  placeholder="Enter Station No">
+            <div style="display: flex;
+            flex-flow: row;
+            align-content: flex-start;">
+              <label for="stationName" style="margin-left: 5px;">Permission </label>
+              <select formControlName="stationName" class="form-control"
+              style="width: 45%;
+              padding-left: 43px;
+              margin-left: 32px;">
+                <option>Dropdown List</option>
+                <option>Read</option>
+                <option>Write</option>
+                  <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+              </select>
 
-            <label for="stationContactNo">Police Station Contact No</label>
-            <input class="form-control" formControlName="stationContactNo"  placeholder="Enter Station Ph No">
+            </div>
 
+            <div style="display: flex;
+            flex-flow: row;
+            align-content: flex-start;">
+              <label for="stationName" style="margin-left: 5px;">Table Name </label>
+              <select formControlName="stationName" class="form-control"
+              style="width: 45%;
+              padding-left: 43px;
+              margin-left: 32px;">
+                <option>Dropdown List</option>
+                <option>CDR Data</option>
+                <option>Cyber Bully</option>
+                <option>Suspect Data</option>
+                <option>SDR Data</option>
+                <option>CAF Forms</option>
+                  <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+              </select>
+
+            </div>
 
             <div>
               <button style="margin-top: 20px;

@@ -38,10 +38,10 @@ export class DashboardComponent implements OnInit {
         cardName: "SDR Data",
         linkName: "sdr-data",
       },
-      // {
-      //   cardName: "CAF Forms",
-      //   linkName: "caf-forms",
-      // },
+      {
+        cardName: "CAF Forms",
+        linkName: "caf-forms",
+      },
       // {
       //   cardName: "Ration Card Details",
       //   linkName: "ration-card",

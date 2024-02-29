@@ -1,17 +1,16 @@
+
 <div id="app">
 
   <app-nav-bar *ngIf="showNavbar"></app-nav-bar>
 
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
+  <nav class="navbar navbar-expand navbar-dark bg-dark"
+  style="position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15%;">
     <a href="#" class="navbar-brand">Official Website</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <!-- <li class="nav-item">
-        <a href="/dashboard" class="nav-link" routerLink="home">Dashboard </a>
-      </li>
-      <li class="nav-item">
-        <a href="/cdr-data" class="nav-link" routerLink="admin">CDR Data</a>
-      </li> -->
-    </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
       <li class="nav-item">
@@ -22,17 +21,12 @@
       </li>
     </ul>
 
-    <!-- <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">LogOut</a>
-      </li>
-    </ul> -->
   </nav>
+
 
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+
+
 </div>
