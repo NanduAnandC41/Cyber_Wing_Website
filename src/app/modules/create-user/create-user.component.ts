@@ -21,6 +21,8 @@ export class CreateUserComponent implements OnInit{
       userEmailId: new FormControl(),
       stationName: new FormControl(),
       userPassword: new FormControl(),
+      stationNo: new FormControl(),
+      stationContactNo: new FormControl(),
     }
   );
 
