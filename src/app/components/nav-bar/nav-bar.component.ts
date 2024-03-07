@@ -26,7 +26,7 @@ export class NavBarComponent implements OnInit {
     },
     {
       cardName: "Suspect Data",
-      linkName: "suspect-data",
+      linkName: "suspect-data",              // Types Of Crime -> need to create, Suspect Account Details
     },
     // {
     //   cardName: "Cell ID Data",
@@ -36,32 +36,32 @@ export class NavBarComponent implements OnInit {
       cardName: "SDR Data",
       linkName: "sdr-data",
     },
-    {
-      cardName: "CAF Forms",
-      linkName: "caf-forms",
-    },
+    // {
+    //   cardName: "CAF Forms",
+    //   linkName: "caf-forms",
+    // },
     // {
     //   cardName: "Ration Card Details",
     //   linkName: "ration-card",
     // },
     // {
-    //   cardName: "Mobile Hunt",
+    //   cardName: "Mobile Hunt",             // No Screen
     //   linkName: "mobile-hunt",
     // },
     // {
-    //   cardName: "Daily CDR Requests",
+    //   cardName: "Daily CDR Requests",      // No Screen
     //   linkName: "cdr-requests",
     // },
     // {
-    //   cardName: "Social Media",
+    //   cardName: "Social Media",            // No Screen
     //   linkName: "social-media",
     // },
     // {
-    //   cardName: "Cases Investigation",
+    //   cardName: "Cases Investigation",     // No Screen
     //   linkName: "cases-check",
     // },
     // {
-    //   cardName: "Search Multiple Criteria",
+    //   cardName: "Search Multiple Criteria",  // No Sceen
     //   linkName: "search-criteria",
     // },
     // {
