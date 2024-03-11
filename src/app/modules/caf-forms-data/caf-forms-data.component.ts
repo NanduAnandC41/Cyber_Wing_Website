@@ -41,6 +41,7 @@ export class CafFormsDataComponent implements OnInit{
       customerSignature: new FormControl(),
       profession: new FormControl(),
       nationality: new FormControl(),
+      passportNo: new FormControl(),
       visaNo: new FormControl(),
       visaType: new FormControl(),
       visaExpiry: new FormControl(),
@@ -98,6 +99,14 @@ export class CafFormsDataComponent implements OnInit{
       proofAddressPlaceOfIssue: new FormControl(),
       proofAddressAuthority: new FormControl(),
       proofOfAddressFile: new FormControl(),
+
+      // Others
+
+      totalNoOfConnections: new FormControl(),
+      existingVIno: new FormControl(),
+      tarrifPlanApplied: new FormControl(),
+      valueAddedServices: new FormControl(),
+      addedOnDetails: new FormControl(),
 
 
 

@@ -1,4 +1,4 @@
-	
+
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 
@@ -12,8 +12,7 @@ export class NcrpDataComponent implements OnInit{
   constructor(private navbarService: NavBarService) { }
 
   ngOnInit(): void {
-    this.navbarService.setShowNavbar(false); 
+    this.navbarService.setShowNavbar(true);
   }
 
 }
-	

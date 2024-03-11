@@ -17,6 +17,8 @@ import { SocialMediaDataComponent } from './modules/social-media-data/social-med
 import { CasesInvestigationDataComponent } from './modules/cases-investigation-data/cases-investigation-data.component';
 import { SearchMultipleCriteriaDataComponent } from './modules/search-multiple-criteria-data/search-multiple-criteria-data.component';
 import { NcrpDataComponent } from './modules/ncrp-data/ncrp-data.component';
+import { CrimeTypesComponent } from './modules/crime-types/crime-types.component';
+import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
 
 const routes: Routes = [
   { path: '',  redirectTo: '/dashboard', pathMatch: 'full' },
@@ -37,6 +39,8 @@ const routes: Routes = [
   // { path: 'cases-check' , component: CasesInvestigationDataComponent},
   // { path: 'search-criteria' , component: SearchMultipleCriteriaDataComponent},
   { path: 'ncrp-data' , component: NcrpDataComponent},
+  { path: 'crime-types' , component: CrimeTypesComponent},
+  { path: 'suspect-acc-data' , component: SuspectAccountDetailsComponent},
 ];
 
 @NgModule({

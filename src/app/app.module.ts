@@ -26,6 +26,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { DataTablesModule } from 'angular-datatables';
 import { HttpClientModule } from '@angular/common/http';
 import * as $ from "jquery";
+import { CrimeTypesComponent } from './modules/crime-types/crime-types.component';
+import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import * as $ from "jquery";
     CasesInvestigationDataComponent,
     SearchMultipleCriteriaDataComponent,
     NcrpDataComponent,
-    NavBarComponent
+    NavBarComponent,
+    CrimeTypesComponent,
+    SuspectAccountDetailsComponent
   ],
   imports: [
     BrowserModule,

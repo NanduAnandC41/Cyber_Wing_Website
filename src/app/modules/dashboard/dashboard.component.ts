@@ -43,41 +43,41 @@ export class DashboardComponent implements OnInit {
         linkName: "caf-forms",
       },
      // {
-    //   cardName: "Ration Card Details",
-    //   linkName: "ration-card",
-    // },
-    // {
-    //   cardName: "Mobile Hunt",             // No Screen
-    //   linkName: "mobile-hunt",
-    // },
-    // {
-    //   cardName: "Daily CDR Requests",      // No Screen
-    //   linkName: "cdr-requests",
-    // },
-    // {
-    //   cardName: "Social Media",            // No Screen
-    //   linkName: "social-media",
-    // },
-    // {
-    //   cardName: "Cases Investigation",     // No Screen
-    //   linkName: "cases-check",
-    // },
-    // {
-    //   cardName: "Search Multiple Criteria",  // No Sceen
-    //   linkName: "search-criteria",
-    // },
-    {
-      cardName: "NCRP",
-      linkName: "ncrp-data",
-    },
-    {
-      cardName: "Types Of Crimes",
-      linkName: "crime-types",
-    },
-    {
-      cardName: "Suspect Acccount Details",
-      linkName: "suspect-acc-data",
-    }
+      //   cardName: "Ration Card Details",
+      //   linkName: "ration-card",
+      // },
+      // {
+      //   cardName: "Mobile Hunt",             // No Screen
+      //   linkName: "mobile-hunt",
+      // },
+      // {
+      //   cardName: "Daily CDR Requests",      // No Screen
+      //   linkName: "cdr-requests",
+      // },
+      // {
+      //   cardName: "Social Media",            // No Screen
+      //   linkName: "social-media",
+      // },
+      // {
+      //   cardName: "Cases Investigation",     // No Screen
+      //   linkName: "cases-check",
+      // },
+      // {
+      //   cardName: "Search Multiple Criteria",  // No Sceen
+      //   linkName: "search-criteria",
+      // },
+      {
+        cardName: "NCRP",
+        linkName: "ncrp-data",
+      },
+      {
+        cardName: "Types Of Crimes",
+        linkName: "crime-types",
+      },
+      {
+        cardName: "Suspect Acccount Details",
+        linkName: "suspect-acc-data",
+      }
     ];
 
   }
