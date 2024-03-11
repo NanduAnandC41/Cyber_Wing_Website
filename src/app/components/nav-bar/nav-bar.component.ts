@@ -36,10 +36,10 @@ export class NavBarComponent implements OnInit {
       cardName: "SDR Data",
       linkName: "sdr-data",
     },
-    // {
-    //   cardName: "CAF Forms",
-    //   linkName: "caf-forms",
-    // },
+    {
+      cardName: "CAF Forms",
+      linkName: "caf-forms",
+    },
     // {
     //   cardName: "Ration Card Details",
     //   linkName: "ration-card",
@@ -64,10 +64,18 @@ export class NavBarComponent implements OnInit {
     //   cardName: "Search Multiple Criteria",  // No Sceen
     //   linkName: "search-criteria",
     // },
-    // {
-    //   cardName: "NCRP",
-    //   linkName: "ncrp-data",
-    // }
+    {
+      cardName: "NCRP",
+      linkName: "ncrp-data",
+    },
+    {
+      cardName: "Types Of Crimes",
+      linkName: "crime-types",
+    },
+    {
+      cardName: "Suspect Acccount Details",
+      linkName: "suspect-acc-data",
+    }
   ];
 
   }

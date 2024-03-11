@@ -77,8 +77,8 @@ export class CyberBullyDataComponent implements OnInit{
   }
 
 
-  submitCdrData():void {
-    console.log("Submit CDR Data");
+  submitCyberBullyData():void {
+    console.log("Submit Cyber Bully Data");
   }
 
 }

@@ -31,11 +31,11 @@ const routes: Routes = [
   { path: 'sdr-data' , component: SdrDataComponent},
   { path: 'caf-forms' , component: CafFormsDataComponent},
   { path: 'ration-card' , component: RationCardDetailsComponent},
-  { path: 'mobile-hunt' , component: MobileHuntDataComponent},
+  // { path: 'mobile-hunt' , component: MobileHuntDataComponent},
   { path: 'cdr-requests' , component: DailyCdrRequestsComponent},
-  { path: 'social-media' , component: SocialMediaDataComponent},
-  { path: 'cases-check' , component: CasesInvestigationDataComponent},
-  { path: 'search-criteria' , component: SearchMultipleCriteriaDataComponent},
+  // { path: 'social-media' , component: SocialMediaDataComponent},
+  // { path: 'cases-check' , component: CasesInvestigationDataComponent},
+  // { path: 'search-criteria' , component: SearchMultipleCriteriaDataComponent},
   { path: 'ncrp-data' , component: NcrpDataComponent},
 ];
 

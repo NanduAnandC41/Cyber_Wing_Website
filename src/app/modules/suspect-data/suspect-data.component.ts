@@ -12,6 +12,7 @@ import { DatePipe } from "@angular/common";
 })
 export class SuspectDataComponent implements OnInit{
 
+  searchValue: string = '';
   currentDate = new Date();
   public suspectDataForm!: FormGroup;
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
@@ -64,6 +65,10 @@ export class SuspectDataComponent implements OnInit{
     }
   );
 
+  }
+
+  suspectSearchValue(): void {
+    console.log("Search Value : " + this.searchValue);
   }
 
 

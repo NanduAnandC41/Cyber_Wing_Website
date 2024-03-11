@@ -27,7 +27,7 @@
   </div>
 
 
-  <div style="margin-top: 5px;" *ngIf="newDataUpdate">
+  <div *ngIf="newDataUpdate">
       <form [formGroup]="cyberBullyForm"  accept-charset="utf-8" enctype="multipart/form-data">
 
           <div class='aligned_form form-group'>
@@ -114,7 +114,7 @@
               <input class="form-control" formControlName="previousCases"  placeholder="Enter Previous Case Details">
 
               <label for="linkedInId">LinkedIn ID</label>
-              <input class="form-control" formControlName="linkedInId" type="file" name="upload">
+              <input class="form-control" formControlName="linkedInId"  placeholder="Enter LinkedIn ID">
               <!-- <input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
 
 
@@ -124,7 +124,7 @@
             <div>
               <button style="margin-top: 20px;
               float: left;" role="button" class="button-name"
-              (click)="submitCdrData();">
+              (click)="submitCyberBullyData();">
               Submit</button>
             </div>
 

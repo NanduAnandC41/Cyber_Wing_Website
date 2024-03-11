@@ -1,12 +1,20 @@
 
-
-
-/* .al-left{
-  float: left;
-
+.header-align{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 999;
 }
 
-.al-right{
-  float: right;
+.modules-body {
 
-} */
+  width: 76%;
+  float: right;
+  margin: auto;
+  margin-right: 2%;
+  margin-left: 2%;
+  margin-top: 78px;
+}

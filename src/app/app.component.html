@@ -2,14 +2,7 @@
 <div id="app">
 
    <!-- Header Bar -->
-   <nav class="navbar navbar-expand navbar-dark bg-dark"
-   style="position: fixed;
-   width: 100%;
-   top: 0;
-   left: 0;
-   right: 0;
-   height: 60px;
-   z-index: 999;">
+   <nav class="navbar navbar-expand navbar-dark bg-dark header-align">
      <a href="#" class="navbar-brand">Official Website</a>
 
      <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
@@ -30,12 +23,7 @@
 
 
       <!-- Components -->
-      <div style="width: 76%;
-      float: right;
-      margin: auto;
-      margin-right: 2%;
-      margin-left: 2%;
-      margin-top: 78px;">
+      <div class="modules-body" >
         <router-outlet></router-outlet>
       </div>
 

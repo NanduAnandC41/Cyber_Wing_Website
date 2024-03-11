@@ -11,6 +11,16 @@
       </div>
   </div> -->
 
+  <div class="box" style="margin: 5px;">
+    <div style="float: left; width: 50%;">
+      <input class="form-control" [(ngModel)]="searchValue"  placeholder="Enter Search Value">
+    </div>
+    <div style="float: right; width: 50%;">
+        <button style="margin-left: 10px;" role="button" class="button-name"
+        (click)="sdrDataSearchValue()">Search</button>
+    </div>
+  </div>
+
 
   <div style="margin-top: 15px;">
       <form [formGroup]="sdrDataForm"  accept-charset="utf-8" enctype="multipart/form-data">

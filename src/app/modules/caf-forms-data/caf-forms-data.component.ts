@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-caf-forms-data',
@@ -9,10 +10,114 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  
 })
 export class CafFormsDataComponent implements OnInit{
 
-  constructor(private navbarService: NavBarService) { }
+  searchValue: string = '';
+  currentDate = new Date();
+  localAddressAccordian: boolean = false;
+  permanentAddressAccordian: boolean = false;
+  officeAddressAccordian: boolean = false;
+  proofOfIdentityAccordian: boolean = false;
+  proofOfAddressAccordian: boolean = false;
+  othersAccordian: boolean = false;
+  public cafDataForm!: FormGroup;
+  constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.navbarService.setShowNavbar(true);
+
+    this.cafDataForm = this.formBuilder.group({
+
+      typeOfSubscriber: new FormControl(),
+      mobileNoAllotted: new FormControl(),
+      imsiNo: new FormControl(),
+      emailId: new FormControl(),
+      customerName: new FormControl(),
+      fatherOrHusbandNmame: new FormControl(),
+      dateOfBirth: new FormControl(),
+      gender: new FormControl(),
+      panCardNo: new FormControl(),
+      gstNo: new FormControl(),
+      alternatePhNo: new FormControl(),
+      mobileUsedFor: new FormControl(),
+      customerSignature: new FormControl(),
+      profession: new FormControl(),
+      nationality: new FormControl(),
+      visaNo: new FormControl(),
+      visaType: new FormControl(),
+      visaExpiry: new FormControl(),
+
+      // Local Address
+
+      localCareOf: new FormControl(),
+      localHouseNo: new FormControl(),
+      localStreetName: new FormControl(),
+      localAreaName: new FormControl(),
+      localLandmark: new FormControl(),
+      localTown: new FormControl(),
+      localDistrict: new FormControl(),
+      localState: new FormControl(),
+      localPinCode: new FormControl(),
+
+      // Permanent Address
+
+      permanentCareOf: new FormControl(),
+      permanentHouseNo: new FormControl(),
+      permanentStreetName: new FormControl(),
+      permanentAreaName: new FormControl(),
+      permanentLandmark: new FormControl(),
+      permanentTown: new FormControl(),
+      permanentDistrict: new FormControl(),
+      permanentState: new FormControl(),
+      permanentPinCode: new FormControl(),
+
+      // Permanent Address
+
+      officeHouseNo: new FormControl(),
+      officeStreetName: new FormControl(),
+      officeAreaName: new FormControl(),
+      officeLandmark: new FormControl(),
+      officeTown: new FormControl(),
+      officeDistrict: new FormControl(),
+      officeState: new FormControl(),
+      officePinCode: new FormControl(),
+
+
+      // Proof Of Identity Details
+
+      typeOfPoi: new FormControl(),
+      proofIdentityDocNo: new FormControl(),
+      proofIdentityDateOfIssue: new FormControl(),
+      proofIdentityPlaceOfIssue: new FormControl(),
+      proofIdentityAuthority: new FormControl(),
+      proofIdentityOfFile: new FormControl(),
+
+      // Proof Of Address Details
+
+      typeOfPoa: new FormControl(),
+      proofAddressDocNo: new FormControl(),
+      proofAddressDateOfIssue: new FormControl(),
+      proofAddressPlaceOfIssue: new FormControl(),
+      proofAddressAuthority: new FormControl(),
+      proofOfAddressFile: new FormControl(),
+
+
+
+    });
+
+
+
+
+  }
+
+
+
+
+
+  cafFormSearchValue(): void {
+    console.log("search value : " + this.searchValue);
+  }
+
+  submitCafFormsData(): void {
+
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 import { cdrInformation } from '../../models/state.constants';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { FormBuilder, FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
 
 @Component({
   selector: 'app-cdr-data',
@@ -71,6 +71,22 @@ export class CDRDataComponent implements OnInit{
       selectValue:  new FormControl(),
       searchField: new FormControl(),
 
+      crimeNo: new FormControl(),
+      partyA: new FormControl(),
+      partyB: new FormControl(),
+      dateTime: new FormControl(),
+      duration: new FormControl(),
+      cellType: new FormControl(),
+      firstCellId: new FormControl(),
+      lastCellId: new FormControl(),
+      imeiA: new FormControl(),
+      imsiA: new FormControl(),
+      cellIdAddress: new FormControl(),
+      latitude: new FormControl(),
+      longitude: new FormControl(),
+
+      policeStation: new FormControl(),
+
       }
     );
 
@@ -80,18 +96,22 @@ export class CDRDataComponent implements OnInit{
 
   initialiseCDRtableData(){
 
-    $('#cdr-dataTable').DataTable( {
-      pagingType: 'full_numbers',
-      pageLength: 5,
-      processing: true,
-      lengthMenu : [5, 10, 25]
-    } );
+    // $('#cdr-dataTable').DataTable( {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 5,
+    //   processing: true,
+    //   lengthMenu : [5, 10, 25]
+    // } );
 
   }
 
 
   seachValueToDataTable(): void{
 
+  }
+
+  submitCdrData(): void {
+    console.log("Submit CDR Data");
   }
 
 }

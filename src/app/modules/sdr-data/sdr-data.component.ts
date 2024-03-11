@@ -9,6 +9,8 @@ import { DatePipe } from "@angular/common";
   styleUrls: ['./sdr-data.component.css']
 })
 export class SdrDataComponent implements OnInit{
+
+  searchValue: string = '';
   currentDate = new Date();
   public sdrDataForm!: FormGroup;
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
@@ -67,9 +69,13 @@ export class SdrDataComponent implements OnInit{
       policeStation: new FormControl(),
       remarks: new FormControl(),
 
-    }
-  );
+      }
+    );
 
+  }
+
+  sdrDataSearchValue(): void {
+    console.log("Search Value : " + this.searchValue);
   }
 
 
