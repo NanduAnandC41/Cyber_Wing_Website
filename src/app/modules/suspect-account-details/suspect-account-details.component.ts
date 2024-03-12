@@ -14,6 +14,12 @@ export class SuspectAccountDetailsComponent implements OnInit{
   currentDate = new Date();
 
   public suspectAcctDetailsForm!: FormGroup;
+
+  newDataButton: boolean = true;
+  updateDataButton: boolean = true;
+  bulkDataButton: boolean = true;
+
+
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -21,13 +27,15 @@ export class SuspectAccountDetailsComponent implements OnInit{
 
     this.suspectAcctDetailsForm = this.formBuilder.group({
 
-      // typeOfSubscriber: new FormControl(),
-      // mobileNoAllotted: new FormControl(),
-      // imsiNo: new FormControl(),
-      // emailId: new FormControl(),
-      // customerName: new FormControl(),
+      searchValue: new FormControl(),
+      uploadFile: new FormControl(),
 
-
+      suspectName: new FormControl(),
+      suspectAcctNo: new FormControl(),
+      suspectPhNo: new FormControl(),
+      suspectUpIds: new FormControl(),
+      suspectUrls: new FormControl(),
+      suspectRemarks: new FormControl(),
 
     });
 
@@ -36,5 +44,39 @@ export class SuspectAccountDetailsComponent implements OnInit{
 
 
 
+  addSupectAccountDetails(): void{
 
+  }
+
+  updateSupectAccountSearchValue(): void{
+
+  }
+
+  bulkUploadOfSuspectAccountData(): void{
+
+  }
+
+  onChangeFileBulkUpload(event: any) {
+    console.log(event.target.files);
+
+    console.log(this.suspectAcctDetailsForm.value);
+
+    if(this.suspectAcctDetailsForm.value.uploadFile != "" ||
+      this.suspectAcctDetailsForm.value.uploadFile != null){
+        this.bulkDataButton = false;
+    }
+
+  }
+
+  seachValueToSuspectAccountDataForm():void{
+    console.log(this.suspectAcctDetailsForm.value.searchValue);
+    if(this.suspectAcctDetailsForm.value.searchValue != "" ||
+        this.suspectAcctDetailsForm.value.searchValue != null){
+          this.updateDataButton = false;
+    }
+  }
+
+  submitSuspectAccountInformation(): void{
+
+  }
 }
