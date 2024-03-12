@@ -2,287 +2,334 @@
 
   <div class="box" style="margin: 5px;">
     <div style="float: left; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="newDataButton"
+        (click)="addCafFormDetails()">New Data</button>
+    </div>
+    <div style="float: right; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="updateDataButton"
+        (click)="updateCafFormSearchValue()">Modify</button>
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="bulkDataButton"
+        (click)="bulkUploadOfCafFormData()">Bulk Upload</button>
+        <!-- <button style="margin:3px" role="button" class="button-name">Search</button> -->
+    </div>
+  </div>
+
+  <!-- <div class="box" style="margin: 5px;">
+    <div style="float: left; width: 50%;">
       <input class="form-control" [(ngModel)]="searchValue"  placeholder="Enter Search Value">
     </div>
     <div style="float: right; width: 50%;">
         <button style="margin-left: 10px;" role="button" class="button-name"
         (click)="cafFormSearchValue()">Search</button>
     </div>
-  </div>
+  </div> -->
 
-  <div style="margin-top: 15px;">
+  <div style="margin-top: 20px;">
     <form [formGroup]="cafDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
 
         <div class='aligned_form form-group'>
 
-          <label for="typeOfSubscriber">Type Of Scubscriber</label>
-          <input class="form-control" formControlName="typeOfSubscriber"  placeholder="Enter Subscriber Type">
+          <label for="uploadFile">Upload </label>
+          <!-- <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"> -->
+          <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"
+            (change)="onChangeFileBulkUpload($event)">
 
-          <label for="mobileNoAllotted">Mobile No. Allotted</label>
-          <input class="form-control" formControlName="mobileNoAllotted"  placeholder="Enter Mobile No">
+          <div class="dropdown-search-btn">
+            <!-- <select formControlName="selectValue" class="form-control" style="margin-right: 5px;">
+              <option>Dropdown List</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
 
-          <label for="imsiNo">IMSI No</label>
-          <input class="form-control" formControlName="imsiNo"  placeholder="Enter IMSI No">
-
-          <label for="emailId">Email ID</label>
-          <input class="form-control" formControlName="emailId"  placeholder="Enter Email ID">
-
-          <label for="customerName">Customer Name</label>
-          <input class="form-control" formControlName="customerName"  placeholder="Enter Name">
-
-          <label for="fatherOrHusbandNmame">Father / Husband Name</label>
-          <input class="form-control" formControlName="fatherOrHusbandNmame"  placeholder="Enter Name">
-
-          <label for="dateOfBirth">Date Of Birth</label>
-          <input type="date" class="form-control" formControlName="dateOfBirth"  value="currentDate">
-
-          <div style="display: flex;
-              flex-flow: row;
-              align-content: flex-start;">
-                <label for="gender">Gender</label>
-                <select formControlName="gender" class="form-control"
-                style="width: 45%;
-                padding-left: 43px;
-                margin-left: 32px;">
-                  <option>Dropdown List</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
-                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
-                </select>
+            </select> -->
+            <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                <div *ngIf="f.website.errors.required">Name is required.</div>
+            </div> -->
+            <input class="form-control" formControlName="searchValue"
+              placeholder="Enter Search Field" style="margin-right: 5px; width: 39%;">
+            <button style="margin:3px" role="button" class="button-name" style="margin-right: 5px;"
+            (click)="seachValueToCafFormDataForm();">
+            Search</button>
 
           </div>
 
-          <label for="panCardNo">PAN Card No</label>
-          <input class="form-control" formControlName="panCardNo"  placeholder="Enter PAN No">
+          <div style="margin-top: 10px;">
 
-          <label for="gstNo">GST No</label>
-          <input class="form-control" formControlName="gstNo"  placeholder="Enter GST No">
+            <label for="typeOfSubscriber">Type Of Scubscriber</label>
+            <input class="form-control" formControlName="typeOfSubscriber"  placeholder="Enter Subscriber Type">
 
-          <label for="alternatePhNo">Alternate Contact No</label>
-          <input class="form-control" formControlName="alternatePhNo"  placeholder="Enter Alternate No">
+            <label for="mobileNoAllotted">Mobile No. Allotted</label>
+            <input class="form-control" formControlName="mobileNoAllotted"  placeholder="Enter Mobile No">
 
-          <div style="display: flex;
-              flex-flow: row;
-              align-content: flex-start;">
-                <label for="mobileUsedFor">Mobile No Used For</label>
-                <select formControlName="gender" class="form-control"
-                style="width: 45%;
-                padding-left: 43px;
-                margin-left: 32px;">
-                  <option>Dropdown List</option>
-                  <option>Self</option>
-                  <option>Family / Relatives</option>
-                  <option>Known Person</option>
-                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
-                </select>
+            <label for="imsiNo">IMSI No</label>
+            <input class="form-control" formControlName="imsiNo"  placeholder="Enter IMSI No">
 
-          </div>
+            <label for="emailId">Email ID</label>
+            <input class="form-control" formControlName="emailId"  placeholder="Enter Email ID">
 
-          <label for="customerSignature">Customer Signature</label>
-          <input class="form-control" formControlName="customerSignature" type="file" name="customerSignature">
+            <label for="customerName">Customer Name</label>
+            <input class="form-control" formControlName="customerName"  placeholder="Enter Name">
 
-          <label for="profession">Profession</label>
-          <input class="form-control" formControlName="profession"  placeholder="Enter Profession">
+            <label for="fatherOrHusbandNmame">Father / Husband Name</label>
+            <input class="form-control" formControlName="fatherOrHusbandNmame"  placeholder="Enter Name">
 
-          <label for="nationality">Nationality</label>
-          <input class="form-control" formControlName="nationality"  placeholder="Enter Nationality">
+            <label for="dateOfBirth">Date Of Birth</label>
+            <input type="date" class="form-control" formControlName="dateOfBirth"  value="currentDate">
 
-          <label for="passportNo">Passport No</label>
-          <input class="form-control" formControlName="passportNo"  placeholder="Enter Passport No">
-
-          <label for="visaExpiry">Visa Expiry</label>
-          <input type="date" class="form-control" formControlName="visaExpiry"  value="currentDate">
-
-          <label for="visaType">Visa Type</label>
-          <input class="form-control" formControlName="visaType"  placeholder="Enter Visa type">
-
-          <label for="visaNo">Visa No</label>
-          <input class="form-control" formControlName="visaNo"  placeholder="Enter Visa No">
-
-          <div class="accordion">
-            <h5 class="title" (click)="localAddressAccordian = !localAddressAccordian"><u>Local Address</u></h5>
-            <div class="content-container" [class.opened]="localAddressAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-              <!-- <p class="content">Content of the accordion</p> -->
-
-              <label for="localCareOf">(C/O) / (D/O) / (S/O) / (W/O) / (H/O)</label>
-              <input class="form-control" formControlName="localCareOf"  placeholder="Enter Details">
-
-              <label for="localHouseNo">House No / Flat No./Building/ Apartment</label>
-              <input class="form-control" formControlName="localHouseNo"  placeholder="Enter Details">
-
-              <label for="localStreetName">Street Address/Road Name</label>
-              <input class="form-control" formControlName="localStreetName"  placeholder="Enter Details">
-
-              <label for="localAreaName">Area/Sector/Locality</label>
-              <input class="form-control" formControlName="localAreaName"  placeholder="Enter Details">
-
-              <label for="localLandmark">Landmark </label>
-              <input class="form-control" formControlName="localLandmark"  placeholder="Enter Details">
-
-              <label for="localTown">Village/Town/ City </label>
-              <input class="form-control" formControlName="localTown"  placeholder="Enter Details">
-
-              <label for="localDistrict">District  </label>
-              <input class="form-control" formControlName="localDistrict"  placeholder="Enter Details">
-
-              <label for="localState">State/UT </label>
-              <input class="form-control" formControlName="localState"  placeholder="Enter Details">
-
-              <label for="localPinCode">Postal Code </label>
-              <input class="form-control" formControlName="localPinCode"  placeholder="Enter Details">
-
+            <div style="display: flex;
+                flex-flow: row;
+                align-content: flex-start;">
+                  <label for="gender">Gender</label>
+                  <select formControlName="gender" class="form-control"
+                  style="width: 45%;
+                  padding-left: 43px;
+                  margin-left: 32px;">
+                    <option>Dropdown List</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                      <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                  </select>
 
             </div>
-          </div>
 
-          <div class="accordion">
-            <h5 class="title" (click)="permanentAddressAccordian = !permanentAddressAccordian"><u>Permanent Address</u></h5>
-            <div class="content-container" [class.opened]="permanentAddressAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-              <!-- <p class="content">Content of the accordion</p> -->
+            <label for="panCardNo">PAN Card No</label>
+            <input class="form-control" formControlName="panCardNo"  placeholder="Enter PAN No">
 
-              <label for="permanentCareOf">(C/O) / (D/O) / (S/O) / (W/O) / (H/O)</label>
-              <input class="form-control" formControlName="permanentCareOf"  placeholder="Enter Details">
+            <label for="gstNo">GST No</label>
+            <input class="form-control" formControlName="gstNo"  placeholder="Enter GST No">
 
-              <label for="permanentHouseNo">House No / Flat No./Building/ Apartment</label>
-              <input class="form-control" formControlName="permanentHouseNo"  placeholder="Enter Details">
+            <label for="alternatePhNo">Alternate Contact No</label>
+            <input class="form-control" formControlName="alternatePhNo"  placeholder="Enter Alternate No">
 
-              <label for="permanentStreetName">Street Address/Road Name</label>
-              <input class="form-control" formControlName="permanentStreetName"  placeholder="Enter Details">
-
-              <label for="permanentAreaName">Area/Sector/Locality</label>
-              <input class="form-control" formControlName="permanentAreaName"  placeholder="Enter Details">
-
-              <label for="permanentLandmark">Landmark </label>
-              <input class="form-control" formControlName="permanentLandmark"  placeholder="Enter Details">
-
-              <label for="permanentTown">Village/Town/ City </label>
-              <input class="form-control" formControlName="permanentTown"  placeholder="Enter Details">
-
-              <label for="permanentDistrict">District  </label>
-              <input class="form-control" formControlName="permanentDistrict"  placeholder="Enter Details">
-
-              <label for="permanentState">State/UT </label>
-              <input class="form-control" formControlName="permanentState"  placeholder="Enter Details">
-
-              <label for="permanentPinCode">Postal Code </label>
-              <input class="form-control" formControlName="permanentPinCode"  placeholder="Enter Details">
-
+            <div style="display: flex;
+                flex-flow: row;
+                align-content: flex-start;">
+                  <label for="mobileUsedFor">Mobile No Used For</label>
+                  <select formControlName="gender" class="form-control"
+                  style="width: 45%;
+                  padding-left: 43px;
+                  margin-left: 32px;">
+                    <option>Dropdown List</option>
+                    <option>Self</option>
+                    <option>Family / Relatives</option>
+                    <option>Known Person</option>
+                      <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                  </select>
 
             </div>
-          </div>
+
+            <label for="customerSignature">Customer Signature</label>
+            <input class="form-control" formControlName="customerSignature" type="file" name="customerSignature">
+
+            <label for="profession">Profession</label>
+            <input class="form-control" formControlName="profession"  placeholder="Enter Profession">
+
+            <label for="nationality">Nationality</label>
+            <input class="form-control" formControlName="nationality"  placeholder="Enter Nationality">
+
+            <label for="passportNo">Passport No</label>
+            <input class="form-control" formControlName="passportNo"  placeholder="Enter Passport No">
+
+            <label for="visaExpiry">Visa Expiry</label>
+            <input type="date" class="form-control" formControlName="visaExpiry"  value="currentDate">
+
+            <label for="visaType">Visa Type</label>
+            <input class="form-control" formControlName="visaType"  placeholder="Enter Visa type">
+
+            <label for="visaNo">Visa No</label>
+            <input class="form-control" formControlName="visaNo"  placeholder="Enter Visa No">
+
+            <div class="accordion">
+              <h5 class="title" (click)="localAddressAccordian = !localAddressAccordian"><u>Local Address</u></h5>
+              <div class="content-container" [class.opened]="localAddressAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+                <!-- <p class="content">Content of the accordion</p> -->
+
+                <label for="localCareOf">(C/O) / (D/O) / (S/O) / (W/O) / (H/O)</label>
+                <input class="form-control" formControlName="localCareOf"  placeholder="Enter Details">
+
+                <label for="localHouseNo">House No / Flat No./Building/ Apartment</label>
+                <input class="form-control" formControlName="localHouseNo"  placeholder="Enter Details">
+
+                <label for="localStreetName">Street Address/Road Name</label>
+                <input class="form-control" formControlName="localStreetName"  placeholder="Enter Details">
+
+                <label for="localAreaName">Area/Sector/Locality</label>
+                <input class="form-control" formControlName="localAreaName"  placeholder="Enter Details">
+
+                <label for="localLandmark">Landmark </label>
+                <input class="form-control" formControlName="localLandmark"  placeholder="Enter Details">
+
+                <label for="localTown">Village/Town/ City </label>
+                <input class="form-control" formControlName="localTown"  placeholder="Enter Details">
+
+                <label for="localDistrict">District  </label>
+                <input class="form-control" formControlName="localDistrict"  placeholder="Enter Details">
+
+                <label for="localState">State/UT </label>
+                <input class="form-control" formControlName="localState"  placeholder="Enter Details">
+
+                <label for="localPinCode">Postal Code </label>
+                <input class="form-control" formControlName="localPinCode"  placeholder="Enter Details">
 
 
-          <div class="accordion">
-            <h5 class="title" (click)="officeAddressAccordian = !officeAddressAccordian"><u>Office Address</u></h5>
-            <div class="content-container" [class.opened]="officeAddressAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-              <!-- <p class="content">Content of the accordion</p> -->
+              </div>
+            </div>
 
-              <label for="officeHouseNo">House No / Flat No./Building/ Apartment</label>
-              <input class="form-control" formControlName="officeHouseNo"  placeholder="Enter Details">
+            <div class="accordion">
+              <h5 class="title" (click)="permanentAddressAccordian = !permanentAddressAccordian"><u>Permanent Address</u></h5>
+              <div class="content-container" [class.opened]="permanentAddressAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+                <!-- <p class="content">Content of the accordion</p> -->
 
-              <label for="officeStreetName">Street Address/Road Name</label>
-              <input class="form-control" formControlName="officeStreetName"  placeholder="Enter Details">
+                <label for="permanentCareOf">(C/O) / (D/O) / (S/O) / (W/O) / (H/O)</label>
+                <input class="form-control" formControlName="permanentCareOf"  placeholder="Enter Details">
 
-              <label for="officeAreaName">Area/Sector/Locality</label>
-              <input class="form-control" formControlName="officeAreaName"  placeholder="Enter Details">
+                <label for="permanentHouseNo">House No / Flat No./Building/ Apartment</label>
+                <input class="form-control" formControlName="permanentHouseNo"  placeholder="Enter Details">
 
-              <label for="officeLandmark">Landmark </label>
-              <input class="form-control" formControlName="officeLandmark"  placeholder="Enter Details">
+                <label for="permanentStreetName">Street Address/Road Name</label>
+                <input class="form-control" formControlName="permanentStreetName"  placeholder="Enter Details">
 
-              <label for="officeTown">Village/Town/ City </label>
-              <input class="form-control" formControlName="officeTown"  placeholder="Enter Details">
+                <label for="permanentAreaName">Area/Sector/Locality</label>
+                <input class="form-control" formControlName="permanentAreaName"  placeholder="Enter Details">
 
-              <label for="officeDistrict">District  </label>
-              <input class="form-control" formControlName="officeDistrict"  placeholder="Enter Details">
+                <label for="permanentLandmark">Landmark </label>
+                <input class="form-control" formControlName="permanentLandmark"  placeholder="Enter Details">
 
-              <label for="officeState">State/UT </label>
-              <input class="form-control" formControlName="officeState"  placeholder="Enter Details">
+                <label for="permanentTown">Village/Town/ City </label>
+                <input class="form-control" formControlName="permanentTown"  placeholder="Enter Details">
 
-              <label for="officePinCode">Postal Code </label>
-              <input class="form-control" formControlName="officePinCode"  placeholder="Enter Details">
+                <label for="permanentDistrict">District  </label>
+                <input class="form-control" formControlName="permanentDistrict"  placeholder="Enter Details">
 
+                <label for="permanentState">State/UT </label>
+                <input class="form-control" formControlName="permanentState"  placeholder="Enter Details">
+
+                <label for="permanentPinCode">Postal Code </label>
+                <input class="form-control" formControlName="permanentPinCode"  placeholder="Enter Details">
+
+
+              </div>
+            </div>
+
+
+            <div class="accordion">
+              <h5 class="title" (click)="officeAddressAccordian = !officeAddressAccordian"><u>Office Address</u></h5>
+              <div class="content-container" [class.opened]="officeAddressAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+                <!-- <p class="content">Content of the accordion</p> -->
+
+                <label for="officeHouseNo">House No / Flat No./Building/ Apartment</label>
+                <input class="form-control" formControlName="officeHouseNo"  placeholder="Enter Details">
+
+                <label for="officeStreetName">Street Address/Road Name</label>
+                <input class="form-control" formControlName="officeStreetName"  placeholder="Enter Details">
+
+                <label for="officeAreaName">Area/Sector/Locality</label>
+                <input class="form-control" formControlName="officeAreaName"  placeholder="Enter Details">
+
+                <label for="officeLandmark">Landmark </label>
+                <input class="form-control" formControlName="officeLandmark"  placeholder="Enter Details">
+
+                <label for="officeTown">Village/Town/ City </label>
+                <input class="form-control" formControlName="officeTown"  placeholder="Enter Details">
+
+                <label for="officeDistrict">District  </label>
+                <input class="form-control" formControlName="officeDistrict"  placeholder="Enter Details">
+
+                <label for="officeState">State/UT </label>
+                <input class="form-control" formControlName="officeState"  placeholder="Enter Details">
+
+                <label for="officePinCode">Postal Code </label>
+                <input class="form-control" formControlName="officePinCode"  placeholder="Enter Details">
+
+
+              </div>
+            </div>
+
+
+            <div class="accordion">
+              <h5 class="title" (click)="proofOfIdentityAccordian = !proofOfIdentityAccordian"><u>Proof Of Identity Details</u></h5>
+              <div class="content-container" [class.opened]="proofOfIdentityAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+
+                <label for="typeOfPoi">Type of POI</label>
+                <input class="form-control" formControlName="typeOfPoi"  placeholder="Enter Details">
+
+                <label for="proofIdentityDocNo">Document No</label>
+                <input class="form-control" formControlName="proofIdentityDocNo"  placeholder="Enter Details">
+
+                <label for="proofIdentityDateOfIssue">Date of Issue</label>
+                <input type="date" class="form-control" formControlName="proofIdentityDateOfIssue"  value="currentDate">
+
+                <label for="proofIdentityPlaceOfIssue">Place of Issue </label>
+                <input class="form-control" formControlName="proofIdentityPlaceOfIssue"  placeholder="Enter Details">
+
+                <label for="proofIdentityAuthority">Issuing Authority</label>
+                <input class="form-control" formControlName="proofIdentityAuthority"  placeholder="Enter Details">
+
+                <label for="proofIdentityOfFile">Upload</label>
+                <input class="form-control" formControlName="proofIdentityOfFile" type="file" name="upload">
+              </div>
+            </div>
+
+
+            <div class="accordion">
+              <h5 class="title" (click)="proofOfAddressAccordian = !proofOfAddressAccordian"><u>Proof Of Address Details</u></h5>
+              <div class="content-container" [class.opened]="proofOfAddressAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+
+                <label for="typeOfPoa">Type of POA</label>
+                <input class="form-control" formControlName="typeOfPoa"  placeholder="Enter Details">
+
+                <label for="proofAddressDocNo">Document No</label>
+                <input class="form-control" formControlName="proofAddressDocNo"  placeholder="Enter Details">
+
+                <label for="proofAddressDateOfIssue">Date of Issue</label>
+                <input type="date" class="form-control" formControlName="proofAddressDateOfIssue"  value="currentDate">
+
+                <label for="proofAddressPlaceOfIssue">Place of Issue </label>
+                <input class="form-control" formControlName="proofAddressPlaceOfIssue"  placeholder="Enter Details">
+
+                <label for="proofAddressAuthority">Issuing Authority</label>
+                <input class="form-control" formControlName="proofAddressAuthority"  placeholder="Enter Details">
+
+                <label for="proofOfAddressFile">Upload</label>
+                <input class="form-control" formControlName="proofOfAddressFile" type="file" name="upload">
+              </div>
+            </div>
+
+
+            <div class="accordion">
+              <h5 class="title" (click)="othersAccordian = !othersAccordian"><u>Others</u></h5>
+              <div class="content-container" [class.opened]="othersAccordian"
+              style="margin-left: 8px; margin-bottom: 10px;">
+
+                <label for="totalNoOfConnections">Customer Total No.Of Connections</label>
+                <input class="form-control" formControlName="totalNoOfConnections"  placeholder="Enter Details">
+
+                <label for="existingVIno">Existing VI No</label>
+                <input class="form-control" formControlName="existingVIno"  placeholder="Enter Details">
+
+                <label for="tarrifPlanApplied">Tariff Plan applied</label>
+                <input type="date" class="form-control" formControlName="tarrifPlanApplied"  value="currentDate">
+
+                <label for="valueAddedServices">Value Added Services applied (if any) </label>
+                <input class="form-control" formControlName="valueAddedServices"  placeholder="Enter Details">
+
+                <label for="addedOnDetails">Details of add on / Value Added Services</label>
+                <input class="form-control" formControlName="addedOnDetails"  placeholder="Enter Details">
+
+              </div>
 
             </div>
-          </div>
 
 
-          <div class="accordion">
-            <h5 class="title" (click)="proofOfIdentityAccordian = !proofOfIdentityAccordian"><u>Proof Of Identity Details</u></h5>
-            <div class="content-container" [class.opened]="proofOfIdentityAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-
-              <label for="typeOfPoi">Type of POI</label>
-              <input class="form-control" formControlName="typeOfPoi"  placeholder="Enter Details">
-
-              <label for="proofIdentityDocNo">Document No</label>
-              <input class="form-control" formControlName="proofIdentityDocNo"  placeholder="Enter Details">
-
-              <label for="proofIdentityDateOfIssue">Date of Issue</label>
-              <input type="date" class="form-control" formControlName="proofIdentityDateOfIssue"  value="currentDate">
-
-              <label for="proofIdentityPlaceOfIssue">Place of Issue </label>
-              <input class="form-control" formControlName="proofIdentityPlaceOfIssue"  placeholder="Enter Details">
-
-              <label for="proofIdentityAuthority">Issuing Authority</label>
-              <input class="form-control" formControlName="proofIdentityAuthority"  placeholder="Enter Details">
-
-              <label for="proofIdentityOfFile">Upload</label>
-              <input class="form-control" formControlName="proofIdentityOfFile" type="file" name="upload">
-            </div>
-          </div>
-
-
-          <div class="accordion">
-            <h5 class="title" (click)="proofOfAddressAccordian = !proofOfAddressAccordian"><u>Proof Of Address Details</u></h5>
-            <div class="content-container" [class.opened]="proofOfAddressAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-
-              <label for="typeOfPoa">Type of POA</label>
-              <input class="form-control" formControlName="typeOfPoa"  placeholder="Enter Details">
-
-              <label for="proofAddressDocNo">Document No</label>
-              <input class="form-control" formControlName="proofAddressDocNo"  placeholder="Enter Details">
-
-              <label for="proofAddressDateOfIssue">Date of Issue</label>
-              <input type="date" class="form-control" formControlName="proofAddressDateOfIssue"  value="currentDate">
-
-              <label for="proofAddressPlaceOfIssue">Place of Issue </label>
-              <input class="form-control" formControlName="proofAddressPlaceOfIssue"  placeholder="Enter Details">
-
-              <label for="proofAddressAuthority">Issuing Authority</label>
-              <input class="form-control" formControlName="proofAddressAuthority"  placeholder="Enter Details">
-
-              <label for="proofOfAddressFile">Upload</label>
-              <input class="form-control" formControlName="proofOfAddressFile" type="file" name="upload">
-            </div>
-          </div>
-
-
-          <div class="accordion">
-            <h5 class="title" (click)="othersAccordian = !othersAccordian"><u>Others</u></h5>
-            <div class="content-container" [class.opened]="othersAccordian"
-            style="margin-left: 8px; margin-bottom: 10px;">
-
-              <label for="totalNoOfConnections">Customer Total No.Of Connections</label>
-              <input class="form-control" formControlName="totalNoOfConnections"  placeholder="Enter Details">
-
-              <label for="existingVIno">Existing VI No</label>
-              <input class="form-control" formControlName="existingVIno"  placeholder="Enter Details">
-
-              <label for="tarrifPlanApplied">Tariff Plan applied</label>
-              <input type="date" class="form-control" formControlName="tarrifPlanApplied"  value="currentDate">
-
-              <label for="valueAddedServices">Value Added Services applied (if any) </label>
-              <input class="form-control" formControlName="valueAddedServices"  placeholder="Enter Details">
-
-              <label for="addedOnDetails">Details of add on / Value Added Services</label>
-              <input class="form-control" formControlName="addedOnDetails"  placeholder="Enter Details">
-
-            </div>
           </div>
 
           <div>

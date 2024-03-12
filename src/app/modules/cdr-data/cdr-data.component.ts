@@ -14,6 +14,12 @@ export class CDRDataComponent implements OnInit{
   dtOptions: DataTables.Settings = {};
   crimeData: cdrInformation[] = [];
 
+
+  searchValue: string = "";
+  newDataButton: boolean = true;
+  updateDataButton: boolean = true;
+  bulkDataButton: boolean = true;
+
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) {
 
 
@@ -71,6 +77,8 @@ export class CDRDataComponent implements OnInit{
       selectValue:  new FormControl(),
       searchField: new FormControl(),
 
+      searchValue: new FormControl(),
+
       crimeNo: new FormControl(),
       partyA: new FormControl(),
       partyB: new FormControl(),
@@ -106,8 +114,45 @@ export class CDRDataComponent implements OnInit{
   }
 
 
-  seachValueToDataTable(): void{
+  seachValueToCdrDataForm(): void{
+      // console.log("seach value : " + this.searchValue);
+      // if(this.searchValue != "" ||
+      //   this.searchValue != null){
+      //     this.updateDataButton = false;
+      // }
 
+      console.log(this.cdrDataForm.value.searchValue);
+      if(this.cdrDataForm.value.searchValue != "" ||
+          this.cdrDataForm.value.searchValue != null){
+            this.updateDataButton = false;
+      }
+  }
+
+  onChangeFileBulkUpload(event: any) {
+    console.log(event.target.files);
+
+    console.log(this.cdrDataForm.value);
+
+    if(this.cdrDataForm.value.uploadFile != "" ||
+      this.cdrDataForm.value.uploadFile != null){
+        this.bulkDataButton = false;
+    }
+
+  }
+
+
+
+
+  addCdrDetails(): void {
+    console.log("New CDR Data");
+  }
+
+  updateCdrSearchValue(): void {
+    console.log("Update CDR Data");
+  }
+
+  bulkUploadOfCdrData(): void {
+    console.log("Bulk Upload CDR Data");
   }
 
   submitCdrData(): void {

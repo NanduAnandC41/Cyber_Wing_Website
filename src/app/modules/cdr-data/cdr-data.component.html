@@ -1,5 +1,22 @@
 <div >
 
+  <div class="box" style="margin: 5px;">
+    <div style="float: left; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="newDataButton"
+        (click)="addCdrDetails()">New Data</button>
+    </div>
+    <div style="float: right; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="updateDataButton"
+        (click)="updateCdrSearchValue()">Modify</button>
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="bulkDataButton"
+        (click)="bulkUploadOfCdrData()">Bulk Upload</button>
+        <!-- <button style="margin:3px" role="button" class="button-name">Search</button> -->
+    </div>
+  </div>
+
 
   <div style="margin-top: 20px;">
 
@@ -8,24 +25,25 @@
           <div class='aligned_form form-group'>
 
               <label for="uploadFile">Upload </label>
-              <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile">
-              <!-- <input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
+              <!-- <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"> -->
+              <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"
+               (change)="onChangeFileBulkUpload($event)">
 
               <div class="dropdown-search-btn">
-                <select formControlName="selectValue" class="form-control" style="margin-right: 5px;">
+                <!-- <select formControlName="selectValue" class="form-control" style="margin-right: 5px;">
                   <option>Dropdown List</option>
                   <option>Option 1</option>
                   <option>Option 2</option>
                   <option>Option 3</option>
-                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
-                </select>
+
+                </select> -->
                 <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
                     <div *ngIf="f.website.errors.required">Name is required.</div>
                 </div> -->
-                <input class="form-control" formControlName="searchField"
-                  placeholder="Enter Search Field" style="margin-right: 5px;">
+                <input class="form-control" formControlName="searchValue"
+                  placeholder="Enter Search Field" style="margin-right: 5px; width: 39%;">
                 <button style="margin:3px" role="button" class="button-name" style="margin-right: 5px;"
-                (click)="seachValueToDataTable();">
+                (click)="seachValueToCdrDataForm();">
                 Search</button>
 
               </div>
@@ -90,15 +108,13 @@
 
               </div>
 
-            </div>
+              <div>
+                <button style="margin-top: 20px;
+                float: left;" role="button" class="button-name"
+                (click)="submitCdrData();">
+                Submit</button>
+              </div>
 
-
-
-            <div>
-              <button style="margin-top: 20px;
-              float: left;" role="button" class="button-name"
-              (click)="submitCdrData();">
-              Submit</button>
             </div>
 
 

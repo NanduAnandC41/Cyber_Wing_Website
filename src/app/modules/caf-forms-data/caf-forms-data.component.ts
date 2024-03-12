@@ -19,12 +19,20 @@ export class CafFormsDataComponent implements OnInit{
   proofOfAddressAccordian: boolean = false;
   othersAccordian: boolean = false;
   public cafDataForm!: FormGroup;
+
+  newDataButton: boolean = true;
+  updateDataButton: boolean = true;
+  bulkDataButton: boolean = true;
+
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.navbarService.setShowNavbar(true);
 
     this.cafDataForm = this.formBuilder.group({
+
+      uploadFile: new FormControl(),
+      searchValue: new FormControl(),
 
       typeOfSubscriber: new FormControl(),
       mobileNoAllotted: new FormControl(),
@@ -118,8 +126,43 @@ export class CafFormsDataComponent implements OnInit{
   }
 
 
+  addCafFormDetails(): void{
 
+  }
 
+  updateCafFormSearchValue():void {
+
+  }
+
+  bulkUploadOfCafFormData(): void{
+
+  }
+
+  seachValueToCafFormDataForm(): void{
+    // console.log("seach value : " + this.searchValue);
+    // if(this.searchValue != "" ||
+    //   this.searchValue != null){
+    //     this.updateDataButton = false;
+    // }
+
+      console.log(this.cafDataForm.value.searchValue);
+      if(this.cafDataForm.value.searchValue != "" ||
+          this.cafDataForm.value.searchValue != null){
+            this.updateDataButton = false;
+      }
+  }
+
+  onChangeFileBulkUpload(event: any) {
+    console.log(event.target.files);
+
+    console.log(this.cafDataForm.value);
+
+    if(this.cafDataForm.value.uploadFile != "" ||
+      this.cafDataForm.value.uploadFile != null){
+        this.bulkDataButton = false;
+    }
+
+  }
 
   cafFormSearchValue(): void {
     console.log("search value : " + this.searchValue);

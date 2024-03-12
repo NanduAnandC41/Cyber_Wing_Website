@@ -1,1 +1,275 @@
-<p>ncrp-data works!</p>
+<div>
+
+  <div class="box" style="margin: 5px;">
+    <div style="float: left; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="newDataButton"
+        (click)="addNcrpDataDetails()">New Data</button>
+    </div>
+    <div style="float: right; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="updateDataButton"
+        (click)="updateNcrpDataSearchValue()">Modify</button>
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="bulkDataButton"
+        (click)="bulkUploadOfNcrpData()">Bulk Upload</button>
+        <!-- <button style="margin:3px" role="button" class="button-name">Search</button> -->
+    </div>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <form [formGroup]="ncrpDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
+
+      <div class='aligned_form form-group'>
+
+        <label for="uploadFile">Upload </label>
+        <!-- <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"> -->
+        <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"
+          (change)="onChangeFileBulkUpload($event)">
+
+        <div class="dropdown-search-btn">
+          <input class="form-control" formControlName="searchValue"
+            placeholder="Enter Search Field" style="margin-right: 5px; width: 39%; margin-top: 10px;">
+          <button style="margin:3px" role="button" class="button-name" style="margin-right: 5px; margin-top: 10px;"
+          (click)="seachValueToNcrpDataForm();">
+          Search</button>
+
+        </div>
+
+        <div style="margin-top: 10px;">
+
+          <label for="crimePetitionNo">Crime No/ Petition No.</label>
+          <input class="form-control" formControlName="crimePetitionNo"  placeholder="Enter Crime/Petition No">
+
+          <label for="categoryComplaint">Category Of Complaint </label>
+          <input class="form-control" formControlName="categoryComplaint"  placeholder="Enter Complaint Category">
+
+          <label for="subCategoryComplaint">Sub Category of Complaint</label>
+          <input class="form-control" formControlName="subCategoryComplaint"  placeholder="Enter Sub-Category Complaint">
+
+          <label for="additionalInfo">Additional Information Presently Content </label>
+          <textarea class="form-control" name="additionalInfo" formControlName="additionalInfo" rows="4" cols="50">
+
+          </textarea>
+
+          <label for="userId">User</label>
+          <input class="form-control" formControlName="userId"  placeholder="Enter User Info">
+
+          <label for="incidentDateTime">Incident Date/Time </label>
+          <!-- <input type="date" class="form-control" formControlName="incidentDateTime"  value="currentDate"> -->
+          <input type="datetime-local" class="form-control" formControlName="incidentDateTime"  value="dateTimeSimActivation">
+
+          <label for="complaintDate">Complaint Date </label>
+          <input type="date" class="form-control" formControlName="complaintDate"  value="currentDate">
+
+
+          <div class="accordion">
+            <h5 class="title" (click)="complainantAccordian = !complainantAccordian"><u>Complainant Details</u></h5>
+            <div class="content-container" [class.opened]="complainantAccordian"
+            style="margin-left: 8px; margin-bottom: 10px;">
+
+              <label for="comlaintantName">Name</label>
+              <input class="form-control" formControlName="comlaintantName"  placeholder="Enter Name">
+
+              <label for="comlaintantMobileNo">Mobile No</label>
+              <input class="form-control" formControlName="comlaintantMobileNo"  placeholder="Enter Mobile No">
+
+              <label for="comlaintantFatherName">Father / Mother / Spouse Name</label>
+              <input class="form-control" formControlName="comlaintantFatherName"  placeholder="Enter Name">
+
+              <label for="comlaintantEmailId">Email ID</label>
+              <input class="form-control" formControlName="comlaintantEmailId"  placeholder="Enter Email ID">
+
+              <label for="comlaintantHouseNo">House No / Flat No./Building/ Apartment</label>
+              <input class="form-control" formControlName="comlaintantHouseNo"  placeholder="Enter Details">
+
+              <label for="comlaintantStreetName">Street Address/Road Name</label>
+              <input class="form-control" formControlName="comlaintantStreetName"  placeholder="Enter Details">
+
+              <label for="comlaintantAreaName">Area/Sector/Locality</label>
+              <input class="form-control" formControlName="comlaintantAreaName"  placeholder="Enter Details">
+
+              <label for="comlaintantLandmark">Landmark </label>
+              <input class="form-control" formControlName="comlaintantLandmark"  placeholder="Enter Details">
+
+              <label for="comlaintantTown">Village/Town/ City </label>
+              <input class="form-control" formControlName="comlaintantTown"  placeholder="Enter Details">
+
+              <label for="comlaintantDistrict">District  </label>
+              <input class="form-control" formControlName="comlaintantDistrict"  placeholder="Enter Details">
+
+              <label for="comlaintantState">State/UT </label>
+              <input class="form-control" formControlName="comlaintantState"  placeholder="Enter Details">
+
+              <label for="comlaintantPinCode">Postal Code </label>
+              <input class="form-control" formControlName="comlaintantPinCode"  placeholder="Enter Details">
+
+              <label for="comlaintantVictimRelation">Relation With Victim</label>
+              <input class="form-control" formControlName="comlaintantVictimRelation"  placeholder="Enter Details">
+
+            </div>
+          </div>
+
+
+
+          <div class="accordion">
+            <h5 class="title" (click)="suspectDetailsAccordian = !suspectDetailsAccordian"><u>Suspect Details</u></h5>
+            <div class="content-container" [class.opened]="suspectDetailsAccordian"
+            style="margin-left: 8px; margin-bottom: 10px;">
+
+              <label for="suspectHouseNo">House No / Flat No./Building/ Apartment</label>
+              <input class="form-control" formControlName="suspectHouseNo"  placeholder="Enter Details">
+
+              <label for="suspectStreetName">Street Address/Road Name</label>
+              <input class="form-control" formControlName="suspectStreetName"  placeholder="Enter Details">
+
+              <label for="suspectAreaName">Area/Sector/Locality</label>
+              <input class="form-control" formControlName="suspectAreaName"  placeholder="Enter Details">
+
+              <label for="suspectLandmark">Landmark </label>
+              <input class="form-control" formControlName="suspectLandmark"  placeholder="Enter Details">
+
+              <label for="suspectTown">Village/Town/ City </label>
+              <input class="form-control" formControlName="suspectTown"  placeholder="Enter Details">
+
+              <label for="suspectTehsill">Tehsill </label>
+              <input class="form-control" formControlName="suspectTehsill"  placeholder="Enter Details">
+
+              <label for="suspectDistrict">District  </label>
+              <input class="form-control" formControlName="suspectDistrict"  placeholder="Enter Details">
+
+              <label for="suspectState">State/UT </label>
+              <input class="form-control" formControlName="suspectState"  placeholder="Enter Details">
+
+              <label for="suspectPinCode">Postal Code </label>
+              <input class="form-control" formControlName="suspectPinCode"  placeholder="Enter Details">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="suspectPoliceStation">Station Name </label>
+                <select formControlName="suspectPoliceStation" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Station 1</option>
+                  <option>Station 2</option>
+                  <option>Station 3</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+              <label for="suspectComplaintDetails">Complaint Additional Info</label>
+              <textarea class="form-control" name="suspectComplaintDetails" formControlName="suspectComplaintDetails" rows="4" cols="50">
+
+              </textarea>
+
+            </div>
+          </div>
+
+
+          <div class="accordion">
+            <h5 class="title" (click)="transactionDetailsAccordian = !transactionDetailsAccordian"><u>Transaction Details</u></h5>
+            <div class="content-container" [class.opened]="transactionDetailsAccordian"
+            style="margin-left: 8px; margin-bottom: 10px;">
+
+              <label for="transactionBank">Bank/Wallet</label>
+              <input class="form-control" formControlName="transactionBank"  placeholder="Enter Name">
+
+              <label for="transactionMerchant">Merchant</label>
+              <input class="form-control" formControlName="transactionMerchant"  placeholder="Enter Name">
+
+              <label for="transactionAccNo">Account No.</label>
+              <input class="form-control" formControlName="transactionAccNo"  placeholder="Enter Acc No">
+
+              <label for="transactionWalletId">Wallet ID</label>
+              <input class="form-control" formControlName="transactionWalletId"  placeholder="Enter Wallet ID">
+
+              <label for="transactionCardDetails">Transaction ID Card Details </label>
+              <input class="form-control" formControlName="transactionCardDetails"  placeholder="Enter Details">
+
+              <label for="transactionAmount">Amount</label>
+              <input class="form-control" formControlName="transactionAmount"  placeholder="Enter Amount">
+
+              <label for="transactionRefNo">Reference No</label>
+              <input class="form-control" formControlName="transactionRefNo"  placeholder="Enter Details">
+
+              <label for="transactionNo">Transaction No </label>
+              <input class="form-control" formControlName="transactionNo"  placeholder="Enter Details">
+
+              <label for="transactionDate">Transaction Date</label>
+              <input type="date" class="form-control" formControlName="transactionDate"  value="currentDate">
+
+              <label for="transactionCompaintDate">Complaint Date  </label>
+              <input type="date" class="form-control" formControlName="transactionCompaintDate"  value="currentDate">
+
+
+            </div>
+          </div>
+
+
+          <div class="accordion">
+            <h5 class="title" (click)="replyDetailsAccordian = !replyDetailsAccordian"><u>Reply Details</u></h5>
+            <div class="content-container" [class.opened]="replyDetailsAccordian"
+            style="margin-left: 8px; margin-bottom: 10px;">
+
+              <label for="replyActionMerchant">Action Taken Bank/ Wallet/Merchant</label>
+              <input class="form-control" formControlName="replyActionMerchant"  placeholder="Enter Name">
+
+              <label for="replyAccNo">Account No.</label>
+              <input class="form-control" formControlName="replyAccNo"  placeholder="Enter Acc No">
+
+              <label for="replyTransactionDetails">Transaction ID</label>
+              <input class="form-control" formControlName="replyTransactionDetails"  placeholder="Enter Details">
+
+              <label for="replyTransactionAmount">Amount</label>
+              <input class="form-control" formControlName="replyTransactionAmount"  placeholder="Enter Amount">
+
+              <div style="display: flex;
+              flex-flow: row;
+              align-content: flex-start;">
+                <label for="replyPoliceStation">Station Name </label>
+                <select formControlName="replyPoliceStation" class="form-control"
+                style="width: 45%;
+                padding-left: 43px;
+                margin-left: 32px;">
+                  <option>Dropdown List</option>
+                  <option>Station 1</option>
+                  <option>Station 2</option>
+                  <option>Station 3</option>
+                    <!-- <option *ngFor="let web of websiteList">{{web}}</option> -->
+                </select>
+
+              </div>
+
+              <label for="replyRemarks">Complaint Additional Info</label>
+              <textarea class="form-control" name="replyRemarks" formControlName="replyRemarks" rows="4" cols="50">
+
+              </textarea>
+
+
+            </div>
+          </div>
+
+
+        </div>
+
+        <div>
+          <button style="margin-top: 20px;
+          float: left;" role="button" class="button-name"
+          (click)="submitNcrpData();">
+          Submit</button>
+        </div>
+
+
+      </div>
+
+
+
+    </form>
+  </div>
+
+
+</div>

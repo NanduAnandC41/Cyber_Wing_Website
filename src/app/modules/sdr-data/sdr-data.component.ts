@@ -13,6 +13,13 @@ export class SdrDataComponent implements OnInit{
   searchValue: string = '';
   currentDate = new Date();
   public sdrDataForm!: FormGroup;
+
+
+  newDataButton: boolean = true;
+  updateDataButton: boolean = true;
+  bulkDataButton: boolean = true;
+
+
   constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) { }
 
 
@@ -20,6 +27,9 @@ export class SdrDataComponent implements OnInit{
     this.navbarService.setShowNavbar(true);
 
     this.sdrDataForm = this.formBuilder.group({
+
+      searchValue: new FormControl(),
+      uploadFile: new FormControl(),
 
       serialNo: new FormControl(),
       telephoneNo: new FormControl(),
@@ -78,6 +88,37 @@ export class SdrDataComponent implements OnInit{
     console.log("Search Value : " + this.searchValue);
   }
 
+  addSdrDataDetails(): void{
+
+  }
+
+  updateSdrDataSearchValue(): void {
+
+  }
+
+  bulkUploadOfSdrData(){
+
+  }
+
+  onChangeFileBulkUpload(event: any) {
+    console.log(event.target.files);
+
+    console.log(this.sdrDataForm.value);
+
+    if(this.sdrDataForm.value.uploadFile != "" ||
+      this.sdrDataForm.value.uploadFile != null){
+        this.bulkDataButton = false;
+    }
+
+  }
+
+  seachValueToSdrDataForm(): void{
+    console.log(this.sdrDataForm.value.searchValue);
+    if(this.sdrDataForm.value.searchValue != "" ||
+        this.sdrDataForm.value.searchValue != null){
+          this.updateDataButton = false;
+    }
+  }
 
   submitSdrInformation():void {
     console.log("Submit SDR Data");

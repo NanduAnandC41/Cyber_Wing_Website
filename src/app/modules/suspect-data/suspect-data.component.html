@@ -1,17 +1,23 @@
 <div >
 
-  <!-- <div class="box" style="margin: 5px;">
-      <div style="float: left; width: 50%;">
-          <button style="margin:3px" role="button" class="button-name">New Data</button>
-      </div>
-      <div style="float: right; width: 50%;">
-          <button style="margin:3px" role="button" class="button-name">Modify</button>
-          <button style="margin:3px" role="button" class="button-name">Bulk Upload</button>
-          <button style="margin:3px" role="button" class="button-name">Search</button>
-      </div>
-  </div> -->
-
   <div class="box" style="margin: 5px;">
+    <div style="float: left; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="newDataButton"
+        (click)="addSuspectDataDetails()">New Data</button>
+    </div>
+    <div style="float: right; width: 50%;">
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="updateDataButton"
+        (click)="updateSuspectSearchValue()">Modify</button>
+        <button style="margin:3px" role="button" class="button-name"
+        [disabled]="bulkDataButton"
+        (click)="bulkUploadOfSuspectData()">Bulk Upload</button>
+        <!-- <button style="margin:3px" role="button" class="button-name">Search</button> -->
+    </div>
+  </div>
+
+  <!-- <div class="box" style="margin: 5px;">
     <div style="float: left; width: 50%;">
       <input class="form-control" [(ngModel)]="searchValue"  placeholder="Enter Search Value">
     </div>
@@ -19,12 +25,40 @@
         <button style="margin-left: 10px;" role="button" class="button-name"
         (click)="suspectSearchValue()">Search</button>
     </div>
-  </div>
+  </div> -->
 
-  <div>
+  <div style="margin-top: 20px;">
       <form [formGroup]="suspectDataForm"  accept-charset="utf-8" enctype="multipart/form-data">
 
           <div class='aligned_form form-group'>
+
+
+            <label for="uploadFile">Upload </label>
+              <!-- <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"> -->
+              <input class="form-control" formControlName="uploadFile" type="file" name="uploadFile"
+               (change)="onChangeFileBulkUpload($event)">
+
+              <div class="dropdown-search-btn">
+                <!-- <select formControlName="selectValue" class="form-control" style="margin-right: 5px;">
+                  <option>Dropdown List</option>
+                  <option>Option 1</option>
+                  <option>Option 2</option>
+                  <option>Option 3</option>
+
+                </select> -->
+                <!-- <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
+                    <div *ngIf="f.website.errors.required">Name is required.</div>
+                </div> -->
+                <input class="form-control" formControlName="searchValue"
+                  placeholder="Enter Search Field" style="margin-right: 5px; width: 39%; margin-top: 10px;">
+                <button style="margin:3px" role="button" class="button-name" style="margin-right: 5px;"
+                (click)="seachValueToSuspectDataForm();">
+                Search</button>
+
+              </div>
+
+
+            <div style="margin-top: 10px;">
 
               <label for="modeOfOperand">Mode Of Operand </label>
               <input class="form-control" formControlName="modeOfOperand"  placeholder="Enter Operand Mode">
@@ -140,7 +174,6 @@
               </textarea>
 
 
-
             </div>
 
             <div>
@@ -149,6 +182,11 @@
               (click)="submitSuspectData();">
               Submit</button>
             </div>
+
+
+          </div>
+
+
 
       </form>
 
