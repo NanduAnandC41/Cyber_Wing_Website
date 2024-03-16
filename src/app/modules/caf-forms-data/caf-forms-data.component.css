@@ -135,4 +135,5 @@ max-height: none;
 
 .active:after {
   content: "\2796"; /* Unicode character for "minus" sign (-) */
+  padding-bottom: 5px;
 }

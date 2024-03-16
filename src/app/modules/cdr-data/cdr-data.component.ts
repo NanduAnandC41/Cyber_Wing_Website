@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
-import { cdrInformation } from '../../models/state.constants';
+import { CdrDataDTO, cdrInformation } from '../../models/state.constants';
 import { FormBuilder, FormControl, FormControlName, FormGroup, FormsModule, ReactiveFormsModule  } from "@angular/forms";
+import { BackendConnectionService } from '../../services/backend-connection.service';
+
+
 
 @Component({
   selector: 'app-cdr-data',
@@ -20,7 +23,8 @@ export class CDRDataComponent implements OnInit{
   updateDataButton: boolean = true;
   bulkDataButton: boolean = true;
 
-  constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder) {
+  constructor(private navbarService: NavBarService, protected formBuilder: FormBuilder,
+    private backendConnectionService: BackendConnectionService) {
 
 
     // this.http.get('https://www.therichpost.com/testjsonapi/users/').subscribe(data => {
@@ -156,7 +160,53 @@ export class CDRDataComponent implements OnInit{
   }
 
   submitCdrData(): void {
-    console.log("Submit CDR Data");
+    console.log(this.cdrDataForm.value);
+
+    if(
+        (this.cdrDataForm.value.crimeNo == '' ||  this.cdrDataForm.value.crimeNo == null) &&
+        (this.cdrDataForm.value.partyA == '' ||  this.cdrDataForm.value.partyA == null) &&
+        (this.cdrDataForm.value.partyB == '' ||  this.cdrDataForm.value.partyB == null) &&
+        (this.cdrDataForm.value.dateTime == '' ||  this.cdrDataForm.value.dateTime == null) &&
+        (this.cdrDataForm.value.duration == '' ||  this.cdrDataForm.value.duration == null) &&
+        (this.cdrDataForm.value.cellType == '' ||  this.cdrDataForm.value.cellType == null) &&
+        (this.cdrDataForm.value.firstCellId == '' ||  this.cdrDataForm.value.firstCellId == null) &&
+        (this.cdrDataForm.value.lastCellId == '' ||  this.cdrDataForm.value.lastCellId == null) &&
+        (this.cdrDataForm.value.imeiA == '' ||  this.cdrDataForm.value.imeiA == null) &&
+        (this.cdrDataForm.value.imsiA == '' ||  this.cdrDataForm.value.imsiA == null) &&
+        (this.cdrDataForm.value.cellIdAddress == '' ||  this.cdrDataForm.value.cellIdAddress == null) &&
+        (this.cdrDataForm.value.latitude == '' ||  this.cdrDataForm.value.latitude == null) &&
+        (this.cdrDataForm.value.longitude == '' ||  this.cdrDataForm.value.longitude == null) &&
+        (this.cdrDataForm.value.policeStation == '' ||  this.cdrDataForm.value.policeStation == null) &&
+        (this.cdrDataForm.value.selectValue == '' ||  this.cdrDataForm.value.selectValue == null)
+        ){
+          alert("Please provide the form values to submit");
+    } else {
+      let submitObj: CdrDataDTO = {
+        crimeNo: this.cdrDataForm.value.crimeNo,
+        partyA: this.cdrDataForm.value.partyA,
+        partyB: this.cdrDataForm.value.partyB,
+        dateTime: this.cdrDataForm.value.dateTime,
+        duration: this.cdrDataForm.value.duration,
+        cellType: this.cdrDataForm.value.cellType,
+        firstCellId: this.cdrDataForm.value.firstCellId,
+        lastCellId: this.cdrDataForm.value.lastCellId,
+        imeiA: this.cdrDataForm.value.imeiA,
+        imsiA: this.cdrDataForm.value.imsiA,
+        cellIdAddress: this.cdrDataForm.value.cellIdAddress,
+        latitude: this.cdrDataForm.value.latitude,
+        longitude: this.cdrDataForm.value.longitude,
+        policeStation: this.cdrDataForm.value.policeStation,
+        selectValue: 1
+      }
+      this.backendConnectionService.submitCdrData(submitObj).subscribe(res => {
+        if(res && res.success){
+          alert(res.data);
+          this.cdrDataForm.reset();
+        } else if(res && !res.success){
+          alert(res.data);
+        }
+      });
+    }
   }
 
 }

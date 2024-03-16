@@ -28,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
 import * as $ from "jquery";
 import { CrimeTypesComponent } from './modules/crime-types/crime-types.component';
 import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
+import { ListOfCdrDataComponent } from './modules/list-of-cdr-data/list-of-cdr-data.component';
+import { CustomePaginationComponent } from './components/custome-pagination/custome-pagination.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { SuspectAccountDetailsComponent } from './modules/suspect-account-detail
     NcrpDataComponent,
     NavBarComponent,
     CrimeTypesComponent,
-    SuspectAccountDetailsComponent
+    SuspectAccountDetailsComponent,
+    ListOfCdrDataComponent,
+    CustomePaginationComponent
   ],
   imports: [
     BrowserModule,

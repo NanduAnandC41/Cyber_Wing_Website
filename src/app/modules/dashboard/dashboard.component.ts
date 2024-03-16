@@ -1,85 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { CardsData } from '../../models/state.constants';
 import { NavBarService } from '../../services/nav-bar.service';
+import { BackendConnectionService } from '../../services/backend-connection.service';
+import { ScreenPages } from '../../models/state.constants';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
-  cardsData: Array<CardsData> = [];
+  cardsData: Array<ScreenPages> = [];
+  obj: any = {};
 
-  constructor(private navbarService: NavBarService) { }
+  constructor(private navbarService: NavBarService,
+    private backendConnectionService: BackendConnectionService) { }
 
   ngOnInit(): void {
 
     this.navbarService.setShowNavbar(false);
 
-    this.cardsData = [
-      {
-        cardName: "CDR's Data",
-        linkName: "cdr-data",
-      },
-      {
-        cardName: "Cyber Bully",
-        linkName: "cyber-bully",
-      },
-      {
-        cardName: "Suspect Data",
-        linkName: "suspect-data",
-      },
-      // {
-      //   cardName: "Cell ID Data",
-      //   linkName: "cell-data",
-      // },
-      {
-        cardName: "SDR Data",
-        linkName: "sdr-data",
-      },
-      {
-        cardName: "CAF Forms",
-        linkName: "caf-forms",
-      },
-     // {
-      //   cardName: "Ration Card Details",
-      //   linkName: "ration-card",
-      // },
-      // {
-      //   cardName: "Mobile Hunt",             // No Screen
-      //   linkName: "mobile-hunt",
-      // },
-      // {
-      //   cardName: "Daily CDR Requests",      // No Screen
-      //   linkName: "cdr-requests",
-      // },
-      // {
-      //   cardName: "Social Media",            // No Screen
-      //   linkName: "social-media",
-      // },
-      // {
-      //   cardName: "Cases Investigation",     // No Screen
-      //   linkName: "cases-check",
-      // },
-      // {
-      //   cardName: "Search Multiple Criteria",  // No Sceen
-      //   linkName: "search-criteria",
-      // },
-      {
-        cardName: "NCRP",
-        linkName: "ncrp-data",
-      },
-      {
-        cardName: "Types Of Crimes",
-        linkName: "crime-types",
-      },
-      {
-        cardName: "Suspect Acccount Details",
-        linkName: "suspect-acc-data",
-      }
-    ];
 
-  }
+    this.backendConnectionService.getScreenNames().subscribe(res => {
+      if(res && res.success){
+        this.cardsData = res.data;
+      }
+    });
+
+   }
+
+
 
 }

@@ -1,0 +1,33 @@
+<div class="card m-3">
+  <h4 class="card-header text-center">AVAILABLE CDR DATA</h4>
+  <div class="card-body">
+      <table class="table table-striped table-sm">
+          <thead>
+              <tr>
+                  <th><a (click)="sortBy('crime_no')">Crime No {{sortIcon('crime_no')}}</a></th>
+                  <th><a (click)="sortBy('crime_a_party')">Party A {{sortIcon('crime_a_party')}}</a></th>
+                  <th><a (click)="sortBy('crime_b_party')">Party B {{sortIcon('crime_b_party')}}</a></th>
+                  <th><a (click)="sortBy('crime_date_time')">Date & Time {{sortIcon('crime_date_time')}}</a></th>
+                  <th><a (click)="sortBy('pl_station_name')">Station Name {{sortIcon('pl_station_name')}}</a></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of pageOfItems">
+                  <td>{{item.crime_no}}</td>
+                  <td>{{item.crime_a_party}}</td>
+                  <td>{{item.crime_b_party}}</td>
+                  <td>{{item.crime_date_time}}</td>
+                  <td>{{item.pl_station_name}}</td>
+              </tr>
+              <tr *ngIf="loading">
+                  <td colspan="5" class="text-center py-5">
+                      <span class="spinner-border spinner-border-lg align-center"></span>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="card-footer pb-0 pt-3">
+      <app-custome-pagination [items]="items" (changePage)="onChangePage($event)"></app-custome-pagination>
+  </div>
+</div>

@@ -19,6 +19,7 @@ import { SearchMultipleCriteriaDataComponent } from './modules/search-multiple-c
 import { NcrpDataComponent } from './modules/ncrp-data/ncrp-data.component';
 import { CrimeTypesComponent } from './modules/crime-types/crime-types.component';
 import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
+import { ListOfCdrDataComponent } from './modules/list-of-cdr-data/list-of-cdr-data.component';
 
 const routes: Routes = [
   { path: '',  redirectTo: '/dashboard', pathMatch: 'full' },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'ncrp-data' , component: NcrpDataComponent},
   { path: 'crime-types' , component: CrimeTypesComponent},
   { path: 'suspect-acc-data' , component: SuspectAccountDetailsComponent},
+  { path: 'list-of-cdr-data', component: ListOfCdrDataComponent}
 ];
 
 @NgModule({
