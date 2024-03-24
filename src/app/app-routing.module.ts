@@ -20,6 +20,11 @@ import { NcrpDataComponent } from './modules/ncrp-data/ncrp-data.component';
 import { CrimeTypesComponent } from './modules/crime-types/crime-types.component';
 import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
 import { ListOfCdrDataComponent } from './modules/list-of-cdr-data/list-of-cdr-data.component';
+import { ListOfSuspectDataComponent } from './modules/list-of-suspect-data/list-of-suspect-data.component';
+import { ListOfSuspectAcDetialsComponent } from './modules/list-of-suspect-ac-detials/list-of-suspect-ac-detials.component';
+import { ListOfSdrDataComponent } from './modules/list-of-sdr-data/list-of-sdr-data.component';
+import { ListOfNcrpComponent } from './modules/list-of-ncrp/list-of-ncrp.component';
+import { ListOfCyberBullyComponent } from './modules/list-of-cyber-bully/list-of-cyber-bully.component';
 
 const routes: Routes = [
   { path: '',  redirectTo: '/dashboard', pathMatch: 'full' },
@@ -42,7 +47,13 @@ const routes: Routes = [
   { path: 'ncrp-data' , component: NcrpDataComponent},
   { path: 'crime-types' , component: CrimeTypesComponent},
   { path: 'suspect-acc-data' , component: SuspectAccountDetailsComponent},
-  { path: 'list-of-cdr-data', component: ListOfCdrDataComponent}
+  { path: 'list-of-cdr-data', component: ListOfCdrDataComponent},
+  { path: 'list-of-suspect-data', component: ListOfSuspectDataComponent},
+  { path: 'list-of-suspect-ac-detials', component: ListOfSuspectAcDetialsComponent},
+  { path: 'list-of-sdr-data', component: ListOfSdrDataComponent},
+  { path: 'list-of-ncrp', component: ListOfNcrpComponent},
+  { path: 'list-of-cyber-bully', component: ListOfCyberBullyComponent},
+  { path: 'list-of-caf-forms', component: ListOfCyberBullyComponent}
 ];
 
 @NgModule({

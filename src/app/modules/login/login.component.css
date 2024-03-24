@@ -30,3 +30,14 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+#login_id {
+  background-image: url('../../../assets/imgs/Nello_PS_Image.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+
+    /* height: 100vh; */
+    display: flex;
+}

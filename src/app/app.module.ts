@@ -30,6 +30,12 @@ import { CrimeTypesComponent } from './modules/crime-types/crime-types.component
 import { SuspectAccountDetailsComponent } from './modules/suspect-account-details/suspect-account-details.component';
 import { ListOfCdrDataComponent } from './modules/list-of-cdr-data/list-of-cdr-data.component';
 import { CustomePaginationComponent } from './components/custome-pagination/custome-pagination.component';
+import { ListOfCyberBullyComponent } from './modules/list-of-cyber-bully/list-of-cyber-bully.component';
+import { ListOfSuspectDataComponent } from './modules/list-of-suspect-data/list-of-suspect-data.component';
+import { ListOfSdrDataComponent } from './modules/list-of-sdr-data/list-of-sdr-data.component';
+import { ListOfCafFormsComponent } from './modules/list-of-caf-forms/list-of-caf-forms.component';
+import { ListOfNcrpComponent } from './modules/list-of-ncrp/list-of-ncrp.component';
+import { ListOfSuspectAcDetialsComponent } from './modules/list-of-suspect-ac-detials/list-of-suspect-ac-detials.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,13 @@ import { CustomePaginationComponent } from './components/custome-pagination/cust
     CrimeTypesComponent,
     SuspectAccountDetailsComponent,
     ListOfCdrDataComponent,
-    CustomePaginationComponent
+    CustomePaginationComponent,
+    ListOfCyberBullyComponent,
+    ListOfSuspectDataComponent,
+    ListOfSdrDataComponent,
+    ListOfCafFormsComponent,
+    ListOfNcrpComponent,
+    ListOfSuspectAcDetialsComponent
   ],
   imports: [
     BrowserModule,

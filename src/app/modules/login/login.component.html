@@ -1,16 +1,16 @@
-<div class="col-md-12">
+<div class="col-md-12" id="login_id">
   <div class="card card-container">
     <img
       id="profile-img"
       src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
       class="profile-img-card"
     />
-    <form
+    <form style="width: 280px;"
       *ngIf="!isLoggedIn"
       name="form"
-      (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
       novalidate
+      [formGroup] = "loginForm"
     >
       <div class="form-group">
         <label for="username">Username</label>
@@ -18,17 +18,9 @@
           type="text"
           class="form-control"
           name="username"
-
+          formControlName="username"
           required
-
         />
-        <!-- <div
-          class="alert alert-danger"
-          role="alert"
-
-        >
-          Username is required!
-        </div> -->
       </div>
       <div class="form-group">
         <label for="password">Password</label>
@@ -36,24 +28,15 @@
           type="password"
           class="form-control"
           name="password"
-
+          formControlName="password"
           required
-          minlength="6"
-
         />
-        <!-- <div
-          class="alert alert-danger"
-          role="alert"
 
-        >
-          <div *ngIf="password.errors.required">Password is required</div>
-          <div *ngIf="password.errors.minlength">
-            Password must be at least 6 characters
-          </div>
-        </div> -->
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">
+        <button class="btn btn-primary btn-block"
+        (click)="loggedIn()"
+        >
           Login
         </button>
       </div>
@@ -61,8 +44,8 @@
         <h6 class="card-title" style="float: left;
         width: 50%;
         display: block;
-        margin-top: 8px;"> 
-          <a href="change-password">Forgot Password ?</a> 
+        margin-top: 8px;">
+          <a href="change-password">Forgot Password ?</a>
         </h6>
         <button class="btn btn-primary btn-block" style="float: left;
         width: 50%;" (click)="createUser();">
@@ -70,7 +53,7 @@
         </button>
       </div>
       <div class="form-group">
-        <div
+        <div style="display: block ruby;"
           class="alert alert-danger"
           role="alert"
           *ngIf="f.submitted && isLoginFailed"

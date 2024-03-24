@@ -30,8 +30,13 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-   }
+    // var divId = document.getElementById("dashboard_id");
 
+    var divID = document.getElementById('dashboard_id') as HTMLElement;
+    divID.style.display = 'none';
+
+
+  }
 
 
 }
